@@ -31,6 +31,8 @@ public class Pessoa extends DefaultEntity<Pessoa> {
 /*	@OneToMany(cascade=CascadeType.ALL, mappedBy="pessoa")
 	private List<Telefone> listaTelefone;*/
 	
+	private Sexo sexo;
+	
 	public Pessoa() {
 		
 	}
@@ -92,6 +94,14 @@ public class Pessoa extends DefaultEntity<Pessoa> {
 
 	public void setDataAniversaio(LocalDate dataAniversaio) {
 		this.dataAniversaio = dataAniversaio;
+	}
+
+	public Sexo getSexo() {
+		return sexo;
+	}
+
+	public void setSexo(Sexo sexo) {
+		this.sexo = sexo;
 	}
 
 

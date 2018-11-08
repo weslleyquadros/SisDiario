@@ -7,6 +7,8 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -43,5 +45,10 @@
       <TextField fx:id="tfDescricao" layoutX="261.0" layoutY="281.0" prefHeight="25.0" prefWidth="279.0" promptText="Descrição" />
       <TextField fx:id="tfValorDeb" layoutX="549.0" layoutY="281.0" prefHeight="25.0" prefWidth="115.0" promptText="Valor" />
       <DatePicker fx:id="dpDataSaida" layoutX="105.0" layoutY="281.0" prefHeight="25.0" prefWidth="146.0" promptText="Data Saída" />
+      <ImageView fitHeight="201.0" fitWidth="199.0" layoutX="579.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/financeiro.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

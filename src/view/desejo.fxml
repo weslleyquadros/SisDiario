@@ -7,6 +7,8 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -25,16 +27,36 @@
          </toggleGroup></RadioButton>
       <RadioButton fx:id="rbRealizado" layoutX="257.0" layoutY="133.0" mnemonicParsing="false" text="Realizado" toggleGroup="$status" AnchorPane.leftAnchor="257.0" AnchorPane.rightAnchor="271.0" />
       <RadioButton fx:id="rbNaoRealizado" layoutX="374.0" layoutY="133.0" mnemonicParsing="false" text="Não realizado" toggleGroup="$status" AnchorPane.leftAnchor="374.0" AnchorPane.rightAnchor="131.0" />
-      <TableView fx:id="tvListDesejos" layoutX="93.0" layoutY="219.0" onMouseClicked="#handleOnMouseClicked" prefHeight="150.0" prefWidth="415.0" AnchorPane.leftAnchor="93.0" AnchorPane.rightAnchor="92.0">
+      <TableView fx:id="tvListDesejos" layoutX="93.0" layoutY="235.0" onMouseClicked="#handleOnMouseClicked" prefHeight="150.0" prefWidth="415.0" AnchorPane.leftAnchor="93.0" AnchorPane.rightAnchor="92.0">
         <columns>
-          <TableColumn fx:id="tcDesejo" prefWidth="305.0" text="Desejo" />
-            <TableColumn fx:id="tcStatus" prefWidth="109.0" text="Status" />
+          <TableColumn fx:id="tcDesejo" prefWidth="305.0" style="-fx-background-color: #cff0da; -fx-border-color: WHITE;" text="Desejo" />
+            <TableColumn fx:id="tcStatus" prefWidth="109.0" style="-fx-background-color: #cff0da; -fx-border-color: white;" text="Status" />
         </columns>
       </TableView>
-      <Button fx:id="btSalvar" layoutX="134.0" layoutY="175.0" mnemonicParsing="false" onAction="#handleSalvar" prefHeight="36.0" prefWidth="72.0" text="Salvar" />
-      <Button fx:id="btAtualizar" layoutX="231.0" layoutY="175.0" mnemonicParsing="false" onAction="#handleAtualizar" prefHeight="36.0" prefWidth="72.0" text="Atualizar" />
-      <Button fx:id="btExcluir" layoutX="322.0" layoutY="175.0" mnemonicParsing="false" onAction="#handleExcluir" prefHeight="36.0" prefWidth="79.0" text="Excluir" />
-      <Button fx:id="btLimpar" layoutX="424.0" layoutY="175.0" mnemonicParsing="false" onAction="#handleLimpar" prefHeight="36.0" prefWidth="72.0" text="Limpar" />
-      <Button fx:id="btListar" layoutX="273.0" layoutY="387.0" mnemonicParsing="false" onAction="#handleListar" text="Listar" />
+      <Button fx:id="btSalvar" layoutX="134.0" layoutY="175.0" mnemonicParsing="false" onAction="#handleSalvar" prefHeight="36.0" prefWidth="72.0" style="-fx-background-color: #30A9DE;" text="Salvar" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <Button fx:id="btAtualizar" layoutX="231.0" layoutY="175.0" mnemonicParsing="false" onAction="#handleAtualizar" prefHeight="36.0" prefWidth="72.0" style="-fx-background-color: #8CD790;" text="Atualizar" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <Button fx:id="btExcluir" layoutX="322.0" layoutY="175.0" mnemonicParsing="false" onAction="#handleExcluir" prefHeight="36.0" prefWidth="79.0" style="-fx-background-color: #E53A40;" text="Excluir" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <Button fx:id="btLimpar" layoutX="424.0" layoutY="175.0" mnemonicParsing="false" onAction="#handleLimpar" prefHeight="36.0" prefWidth="72.0" style="-fx-background-color: #F6B352;" text="Limpar" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <Button fx:id="btListar" layoutX="269.0" layoutY="395.0" mnemonicParsing="false" onAction="#handleListar" style="-fx-background-color: #005f6b;" text="Listar" textFill="WHITE">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></Button>
+      <ImageView fitHeight="164.0" fitWidth="133.0" layoutX="4.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/desejos.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

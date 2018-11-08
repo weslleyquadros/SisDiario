@@ -29,120 +29,100 @@ import javafx.scene.input.MouseEvent;
 import model.Anotacoes;
 
 import model.Diario;
-import model.Telefone;
 
 import repository.DiarioRepository;
 import repository.LerDiarioRepository;
 
-
 public class LerDiarioController extends Controller<Diario> implements Initializable {
 
 	private Diario diario;
-	
-	 @FXML
-	    private TabPane tpAbas;
 
-	    @FXML
-	    private TableView<Diario> tvListDiarios;
+	@FXML
+	private TabPane tpAbas;
 
-	    @FXML
-	    private TableColumn<Diario, Integer> tcIdDiario;
+	@FXML
+	private TableView<Diario> tvListDiarios;
 
-	    @FXML
-	    private TableColumn<Diario, String > tcTitulo;
+	@FXML
+	private TableColumn<Diario, Integer> tcIdDiario;
 
-	    @FXML
-	    private TableColumn<Diario, String > tcTipo;
+	@FXML
+	private TableColumn<Diario, String> tcTitulo;
 
-	    @FXML
-	    private TableColumn<Diario, LocalDate> tcData;
+	@FXML
+	private TableColumn<Diario, String> tcTipo;
 
-	    @FXML
-	    private TableColumn<Diario, String> tcRelato;
+	@FXML
+	private TableColumn<Diario, LocalDate> tcData;
 
-	    @FXML
-	    private DatePicker dpData;
+	@FXML
+	private TableColumn<Diario, String> tcRelato;
 
-	    @FXML
-	    private TextField tfTitulo;
-	    @FXML
-	    private TextField tfTituloPesquisar;
+	@FXML
+	private DatePicker dpData;
 
+	@FXML
+	private TextField tfTitulo;
+	@FXML
+	private TextField tfTituloPesquisar;
 
-	    @FXML
-	    private ComboBox<String> dpTipo;
-	    
-	    @FXML
-	    private TextArea taAnotacoes;
+	@FXML
+	private ComboBox<String> dpTipo;
 
-	    @FXML
-	    private DatePicker dtDataCadastro;
+	@FXML
+	private TextArea taAnotacoes;
 
-	    @FXML
-	    void handleOnMouseClicked(MouseEvent event) {
-	    	// VERIFICANDO SE Ã‰ O BOTÃƒO PRINCIPAL QUE FOI CLIADO
-			if (event.getButton().equals(MouseButton.PRIMARY)) {
-				// VERIFICANDO SE A QUANTIDADE DE CLIQUES NO BOTÃƒO PRIMÃ�RIO Ã‰ IGUAL A 2
-				if (event.getClickCount() == 2) {
+	@FXML
+	private DatePicker dtDataCadastro;
 
-					diario = tvListDiarios.getSelectionModel().getSelectedItem();
+	@FXML
+	void handleOnMouseClicked(MouseEvent event) {
+		// VERIFICANDO SE Ã‰ O BOTÃƒO PRINCIPAL QUE FOI CLIADO
+		if (event.getButton().equals(MouseButton.PRIMARY)) {
+			// VERIFICANDO SE A QUANTIDADE DE CLIQUES NO BOTÃƒO PRIMÃ�RIO Ã‰ IGUAL A 2
+			if (event.getClickCount() == 2) {
 
-					tfTitulo.setText(getDiario().getTitulo());
-					taAnotacoes.setText(getDiario().getAnotacoes());
-					dpTipo.setValue(getDiario().getTipo());
-					dtDataCadastro.setValue(getDiario().getDataCadastro());
-					
+				diario = tvListDiarios.getSelectionModel().getSelectedItem();
 
-				
+				tfTitulo.setText(getDiario().getTitulo());
+				taAnotacoes.setText(getDiario().getAnotacoes());
+				dpTipo.setValue(getDiario().getTipo());
+				dtDataCadastro.setValue(getDiario().getDataCadastro());
 
-					// SELECIONANDO A PRIMEIRA ABA
-					tpAbas.getSelectionModel().select(1);
+				// SELECIONANDO A PRIMEIRA ABA
+				tpAbas.getSelectionModel().select(1);
 
-					
-
-					
-				}
 			}
-	    }
+		}
+	}
 
-	    @FXML
-	    void handlePesquisar(ActionEvent event) {
-	    	DiarioRepository repository = new DiarioRepository(JPAFactory.getEntityManager());
-			List<Diario> lista = repository.getDiario(tfTituloPesquisar.getText());
+	@FXML
+	void handlePesquisar(ActionEvent event) {
+		DiarioRepository repository = new DiarioRepository(JPAFactory.getEntityManager());
+		List<Diario> lista = repository.getDiario(tfTituloPesquisar.getText());
 
-			if (lista.isEmpty()) {
-				Alert alerta = new Alert(AlertType.INFORMATION);
-				alerta.setTitle("Informação:");
-				alerta.setHeaderText(null);
-				alerta.setContentText("A consulta não retornou dados!");
-				alerta.show();
-			}
+		if (lista.isEmpty()) {
+			Alert alerta = new Alert(AlertType.INFORMATION);
+			alerta.setTitle("Informação:");
+			alerta.setHeaderText(null);
+			alerta.setContentText("A consulta não retornou dados!");
+			alerta.show();
+		}
 
-			tvListDiarios.setItems(FXCollections.observableList(lista));
-	    }
-
-	    
+		tvListDiarios.setItems(FXCollections.observableList(lista));
+	}
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// setando o focus no text field cpf
 		// CONFIGURANDO AS COLUNAS DAS TABELAS CONFORME OS ATRIBUTOS DA CLASSE CLIENTE
-				tcIdDiario.setCellValueFactory(new PropertyValueFactory<>("id"));
-				tcTitulo.setCellValueFactory(new PropertyValueFactory<>("titulo"));
-				tcData.setCellValueFactory(new PropertyValueFactory<>("dataCadastro"));
-				tcRelato.setCellValueFactory(new PropertyValueFactory<>("anotacoes"));
-				tcTipo.setCellValueFactory(new PropertyValueFactory<>("tipo"));
-				
-		
-					
-		
-		
-		
-		
+		tcIdDiario.setCellValueFactory(new PropertyValueFactory<>("id"));
+		tcTitulo.setCellValueFactory(new PropertyValueFactory<>("titulo"));
+		tcData.setCellValueFactory(new PropertyValueFactory<>("dataCadastro"));
+		tcRelato.setCellValueFactory(new PropertyValueFactory<>("anotacoes"));
+		tcTipo.setCellValueFactory(new PropertyValueFactory<>("tipo"));
+
 	}
-	
-
-
 
 	public Diario getDiario() {
 		if (diario == null)
@@ -154,6 +134,4 @@ public class LerDiarioController extends Controller<Diario> implements Initializ
 		this.diario = diario;
 	}
 
-	
-	
 }

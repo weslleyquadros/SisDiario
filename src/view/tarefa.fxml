@@ -24,10 +24,22 @@
       <RadioButton fx:id="rbAguardando" layoutX="212.0" layoutY="204.0" mnemonicParsing="false" text="Aguardando" AnchorPane.leftAnchor="212.0" AnchorPane.rightAnchor="301.0" />
       <RadioButton fx:id="rbRealizada" layoutX="311.0" layoutY="204.0" mnemonicParsing="false" text="Realizada" AnchorPane.leftAnchor="311.0" AnchorPane.rightAnchor="217.0" />
       <RadioButton fx:id="rbNaoRealizado" layoutX="395.0" layoutY="204.0" mnemonicParsing="false" text="Não realizada" AnchorPane.leftAnchor="395.0" AnchorPane.rightAnchor="110.0" />
-      <Button fx:id="btSalvar" layoutX="184.0" layoutY="246.0" mnemonicParsing="false" onAction="#handleSalvar" prefHeight="36.0" prefWidth="72.0" text="Salvar" />
-      <Button fx:id="btAtualizar" layoutX="281.0" layoutY="246.0" mnemonicParsing="false" onAction="#handleAtualizar" prefHeight="36.0" prefWidth="72.0" text="Atualizar" />
-      <Button fx:id="btExcluir" layoutX="372.0" layoutY="246.0" mnemonicParsing="false" onAction="#handleExcluir" prefHeight="36.0" prefWidth="79.0" text="Excluir" />
-      <Button fx:id="btLimpar" layoutX="474.0" layoutY="246.0" mnemonicParsing="false" onAction="#handleLimpar" prefHeight="36.0" prefWidth="72.0" text="Limpar" />
+      <Button fx:id="btSalvar" layoutX="184.0" layoutY="246.0" mnemonicParsing="false" onAction="#handleSalvar" prefHeight="36.0" prefWidth="72.0" style="-fx-background-color: #30A9DE;" text="Salvar" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <Button fx:id="btAtualizar" layoutX="281.0" layoutY="246.0" mnemonicParsing="false" onAction="#handleAtualizar" prefHeight="36.0" prefWidth="72.0" style="-fx-background-color: #8CD790;" text="Atualizar" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <Button fx:id="btExcluir" layoutX="372.0" layoutY="246.0" mnemonicParsing="false" onAction="#handleExcluir" prefHeight="36.0" prefWidth="79.0" style="-fx-background-color: #E53A40;" text="Excluir" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <Button fx:id="btLimpar" layoutX="474.0" layoutY="246.0" mnemonicParsing="false" onAction="#handleLimpar" prefHeight="36.0" prefWidth="72.0" style="-fx-background-color: #F6B352;" text="Limpar" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
       <Label layoutX="196.0" layoutY="115.0" />
       <Label layoutX="193.0" layoutY="132.0" text="Data:" />
       <DatePicker fx:id="dpDatatarefa" layoutX="256.0" layoutY="128.0" prefHeight="25.0" prefWidth="222.0" />
@@ -35,16 +47,19 @@
       <Label layoutX="193.0" layoutY="171.0" text="Descrição:" />
       <TableView fx:id="tvTarefas" layoutX="33.0" layoutY="293.0" onMouseClicked="#handleOnMouseClicked" prefHeight="144.0" prefWidth="679.0">
         <columns>
-            <TableColumn fx:id="tcId" prefWidth="41.0" text="Id" />
-          <TableColumn fx:id="tcTituloTarefa" prefWidth="170.0" text="TÍTULO" />
-          <TableColumn fx:id="tcDataTarefa" prefWidth="100.0" text="DATA" />
-            <TableColumn fx:id="tcDescricaoTarefa" prefWidth="259.0" text="DESCRIÇÃO" />
-            <TableColumn fx:id="tcStatustTarefa" prefWidth="112.0" text="STATUS" />
+            <TableColumn fx:id="tcId" prefWidth="41.0" style="-fx-background-color: #cff0da;" text="Id" />
+          <TableColumn fx:id="tcTituloTarefa" prefWidth="170.0" style="-fx-background-color: #cff0da;" text="TÍTULO" />
+          <TableColumn fx:id="tcDataTarefa" prefWidth="100.0" style="-fx-background-color: #cff0da;" text="DATA" />
+            <TableColumn fx:id="tcDescricaoTarefa" prefWidth="259.0" style="-fx-background-color: #cff0da;" text="DESCRIÇÃO" />
+            <TableColumn fx:id="tcStatustTarefa" prefWidth="112.0" style="-fx-background-color: #cff0da;" text="STATUS" />
         </columns>
       </TableView>
       <Label layoutX="147.0" layoutY="204.0" text="Status:" />
-      <Button fx:id="btListar" layoutX="330.0" layoutY="455.0" mnemonicParsing="false" onAction="#handleListar" prefHeight="36.0" prefWidth="72.0" text="Listar" />
-      <ImageView fitHeight="138.0" fitWidth="124.0" layoutX="587.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+      <Button fx:id="btListar" layoutX="330.0" layoutY="455.0" mnemonicParsing="false" onAction="#handleListar" prefHeight="36.0" prefWidth="72.0" style="-fx-background-color: #005f6b;" text="Listar" textFill="WHITE">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></Button>
+      <ImageView fitHeight="123.0" fitWidth="130.0" layoutX="603.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@img/tarefas.png" />
          </image>

@@ -60,7 +60,7 @@ public class TelaInicialController  {
 	  @FXML
 	    void handleAbrirFinanceiro(ActionEvent event) throws IOException {
 		  FXMLLoader fXMLLoader = new FXMLLoader();
-			fXMLLoader.setLocation(getClass().getResource("/view/controleFinanceiro.fxml"));
+			fXMLLoader.setLocation(getClass().getResource("/view/controleGastos.fxml"));
 			Stage stage = new Stage();
 			Scene scene = new Scene(fXMLLoader.load());
 			stage.setScene(scene);

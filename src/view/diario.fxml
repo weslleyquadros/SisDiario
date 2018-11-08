@@ -41,7 +41,7 @@
                   <Button fx:id="btSalvar" cache="true" layoutX="166.0" layoutY="451.0" mnemonicParsing="false" onAction="#handleSalvar" prefHeight="32.0" prefWidth="86.0" style="-fx-background-color: #30A9DE;" text="Salvar" textFill="WHITE" />
                   <Button fx:id="btCancelar" layoutX="463.0" layoutY="451.0" mnemonicParsing="false" onAction="#handleCancelar" prefHeight="32.0" prefWidth="86.0" style="-fx-background-color: #E53A40;" text="Cancelar" textFill="WHITE" />
                   <DatePicker fx:id="dtDataCadastro" layoutX="209.0" layoutY="52.0" prefHeight="25.0" prefWidth="206.0" />
-                  <ImageView fitHeight="122.0" fitWidth="141.0" layoutX="568.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="136.0" fitWidth="146.0" layoutX="559.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@img/livro.png" />
                      </image>

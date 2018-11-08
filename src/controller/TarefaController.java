@@ -16,6 +16,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
@@ -96,19 +97,27 @@ public class TarefaController extends Controller<Tarefa> implements Initializabl
 		if (rbAguardando.isSelected()) {
 			output = rbAguardando.getText();
 			getTarefa().setStatusTarefa(output);
-
-		}
-
+			rbAguardando.setSelected(true);
+			rbAguardando.requestFocus();
+			
+		} 
+		
 		if (rbRealizada.isSelected()) {
 			output = rbRealizada.getText();
 			getTarefa().setStatusTarefa(output);
-		}
-
-		if (rbNaoRealizado.isSelected()) {
+			rbRealizada.setSelected(true);
+			rbRealizada.requestFocus();
+		} 
+		
+		if(rbNaoRealizado.isSelected()) {
 			output = rbNaoRealizado.getText();
-
+					
 			getTarefa().setStatusTarefa(output);
+		
+			rbNaoRealizado.setSelected(true);
+			rbNaoRealizado.requestFocus();
 		}
+		
 
 		save(getTarefa());
 
@@ -200,23 +209,30 @@ handleListar(event);
 		getTarefa().setDescricaoTarefa(tfDescricao.getText());
 
 		String output = "";
-
 		if (rbAguardando.isSelected()) {
 			output = rbAguardando.getText();
 			getTarefa().setStatusTarefa(output);
-
-		}
-
+			rbAguardando.setSelected(true);
+			rbAguardando.requestFocus();
+			
+		} 
+		
 		if (rbRealizada.isSelected()) {
 			output = rbRealizada.getText();
 			getTarefa().setStatusTarefa(output);
-		}
-
-		if (rbNaoRealizado.isSelected()) {
+			rbRealizada.setSelected(true);
+			rbRealizada.requestFocus();
+		} 
+		
+		if(rbNaoRealizado.isSelected()) {
 			output = rbNaoRealizado.getText();
-
+					
 			getTarefa().setStatusTarefa(output);
+		
+			rbNaoRealizado.setSelected(true);
+			rbNaoRealizado.requestFocus();
 		}
+		
 
 		tvTarefas.getItems().add(tarefa);
 
@@ -253,6 +269,14 @@ handleListar(event);
 		tcDescricaoTarefa.setCellValueFactory(new PropertyValueFactory<>("descricaoTarefa"));
 
 		tcStatustTarefa.setCellValueFactory(new PropertyValueFactory<>("statusTarefa"));
+		
+		
+		final ToggleGroup group = new ToggleGroup();
+
+		rbAguardando.setToggleGroup(group);
+		rbAguardando.setSelected(true);
+		rbRealizada.setToggleGroup(group);
+		rbNaoRealizado.setToggleGroup(group);
 	
 
 	}

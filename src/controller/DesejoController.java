@@ -158,19 +158,25 @@ public class DesejoController extends Controller<Desejo> implements Initializabl
 		if (rbAguardando.isSelected()) {
 			output = rbAguardando.getText();
 			getDesejo().setStatus(output);
-			
+			rbAguardando.setSelected(true);
+			rbAguardando.requestFocus();
 			
 		} 
 		
 		if (rbRealizado.isSelected()) {
 			output = rbRealizado.getText();
 			getDesejo().setStatus(output);
+			rbRealizado.setSelected(true);
+			rbRealizado.requestFocus();
 		} 
 		
 		if(rbNaoRealizado.isSelected()) {
 			output = rbNaoRealizado.getText();
-			
+					
 			getDesejo().setStatus(output);
+		
+			rbNaoRealizado.setSelected(true);
+			rbNaoRealizado.requestFocus();
 		}
 		
 		
@@ -235,7 +241,13 @@ public class DesejoController extends Controller<Desejo> implements Initializabl
 		tcDesejo.setCellValueFactory(new PropertyValueFactory<>("descricao"));
 
 		tcStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
-	
+		
+		final ToggleGroup group = new ToggleGroup();
+
+		rbAguardando.setToggleGroup(group);
+		rbAguardando.setSelected(true);
+		rbRealizado.setToggleGroup(group);
+		rbNaoRealizado.setToggleGroup(group);
 
 	}
 		    

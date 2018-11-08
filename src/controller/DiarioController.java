@@ -27,95 +27,83 @@ import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import model.Anotacoes;
 import model.Diario;
-import model.Telefone;
-
 
 public class DiarioController extends Controller<Diario> implements Initializable {
 
 	private Diario diario;
 
-	  @FXML
-	    private TextField tfTitulo;
+	@FXML
+	private TextField tfTitulo;
 
-	
-	  
-	    @FXML
-	    private ComboBox<String> dpTipo;
+	@FXML
+	private ComboBox<String> dpTipo;
 
-	   ObservableList<String> list = FXCollections.observableArrayList("Afirmação","Pensamentos","Sentimento","Segredo","Relato");
-	   
-	    @FXML
-	    private TextArea taAnotacoes;
+	ObservableList<String> list = FXCollections.observableArrayList("Afirmação", "Pensamentos", "Sentimento", "Segredo",
+			"Relato");
 
-	    @FXML
-	    private Button btSalvar;
+	@FXML
+	private TextArea taAnotacoes;
 
-	    @FXML
-	    private Button btCancelar;
+	@FXML
+	private Button btSalvar;
 
-	    @FXML
-	    private DatePicker dtDataCadastro;
+	@FXML
+	private Button btCancelar;
 
-	    @FXML
-	    void handleCancelar(ActionEvent event) {
-	    	tfTitulo.setText("");
-	    	dtDataCadastro.setValue(null);
-	    	dpTipo.setValue(null);
-	    	taAnotacoes.setText("");
-			
-			
+	@FXML
+	private DatePicker dtDataCadastro;
 
-			// LIMPANDO AS INFORMAÃ‡Ã•ES DO CLIENTE
-			diario = null;
+	@FXML
+	void handleCancelar(ActionEvent event) {
+		tfTitulo.setText("");
+		dtDataCadastro.setValue(null);
+		dpTipo.setValue(null);
+		taAnotacoes.setText("");
 
-			/*// LIMPAR AS TABELAS
-			tvClientes.getItems().clear();
-			tbTelefone.getItems().clear();*/
+		// LIMPANDO AS INFORMAÃ‡Ã•ES DO CLIENTE
+		diario = null;
 
-			tfTitulo.requestFocus();
-		
-	    }
+		/*
+		 * // LIMPAR AS TABELAS tvClientes.getItems().clear();
+		 * tbTelefone.getItems().clear();
+		 */
 
-	    @FXML
-	    void handleSalvar(ActionEvent event) {
-	    	
-	    	
-	    	getDiario().setTitulo(tfTitulo.getText());
-	    	
-			
-	    	getDiario().setDataCadastro(dtDataCadastro.getValue());
-	    	getDiario().setAnotacoes(taAnotacoes.getText());
-	    	
-	    	getDiario().setTipo(dpTipo.getValue());
-	    	
+		tfTitulo.requestFocus();
 
-			super.save(getDiario());
-			
-			handleCancelar(event);
-	    }
-	    
+	}
+
+	@FXML
+	void handleSalvar(ActionEvent event) {
+
+		getDiario().setTitulo(tfTitulo.getText());
+
+		getDiario().setDataCadastro(dtDataCadastro.getValue());
+		getDiario().setAnotacoes(taAnotacoes.getText());
+
+		getDiario().setTipo(dpTipo.getValue());
+
+		super.save(getDiario());
+
+		handleCancelar(event);
+	}
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// setando o focus no text field cpf
 		tfTitulo.requestFocus();
-		
+
 		dpTipo.setItems(list);
 
-	
-		
-		/*// configurando as colunas das tabelas conforme os atributos da classe Telefone
-		tcCodigoArea.setCellValueFactory(new PropertyValueFactory<>("codigoArea"));
-		tcNumero.setCellValueFactory(new PropertyValueFactory<>("numero"));*/
+		/*
+		 * // configurando as colunas das tabelas conforme os atributos da classe
+		 * Telefone tcCodigoArea.setCellValueFactory(new
+		 * PropertyValueFactory<>("codigoArea")); tcNumero.setCellValueFactory(new
+		 * PropertyValueFactory<>("numero"));
+		 */
 
 		// atualizando os botoes
-		
-		
+
 	}
-	
-
-
-	
 
 	public Diario getDiario() {
 		if (diario == null)
@@ -127,6 +115,4 @@ public class DiarioController extends Controller<Diario> implements Initializabl
 		this.diario = diario;
 	}
 
-	
-	
 }
