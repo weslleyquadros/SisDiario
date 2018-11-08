@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PessoaController">
+   <children>
+      <Button fx:id="btSalvar" layoutX="148.0" layoutY="277.0" mnemonicParsing="false" onAction="#handleSalvar" prefHeight="80.0" prefWidth="164.0" text="Salvar " />
+      <TextField fx:id="tfNome" layoutX="148.0" layoutY="59.0" prefHeight="25.0" prefWidth="327.0" promptText="Nome" />
+      <TextField fx:id="tfApelido" layoutX="148.0" layoutY="95.0" prefHeight="25.0" prefWidth="99.0" promptText="Apelido" />
+      <TextField fx:id="tfEmail" layoutX="146.0" layoutY="133.0" prefHeight="25.0" prefWidth="336.0" promptText="Email" />
+      <TextField fx:id="tfSenha" layoutX="146.0" layoutY="203.0" prefHeight="25.0" prefWidth="336.0" promptText="Senha" />
+      <ComboBox layoutX="396.0" layoutY="95.0" prefHeight="25.0" prefWidth="79.0" promptText="SEXO" />
+      <AnchorPane layoutX="137.0" layoutY="242.0" />
+      <Button fx:id="btCancelar" layoutX="319.0" layoutY="277.0" mnemonicParsing="false" onAction="#handleCancelar" prefHeight="80.0" prefWidth="164.0" text="Cancelar" />
+      <ImageView fitHeight="80.0" fitWidth="99.0" layoutX="28.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../cadastrarUsuario.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="tfConfEmail" layoutX="146.0" layoutY="167.0" prefHeight="25.0" prefWidth="336.0" promptText="Confirmar Email" />
+      <TextField fx:id="tfConfSenha" layoutX="147.0" layoutY="240.0" prefHeight="25.0" prefWidth="336.0" promptText="Confirmar Senha" />
+      <Label layoutX="178.0" layoutY="14.0" text="Cadastro de Pessoa">
+         <font>
+            <Font name="System Bold" size="27.0" />
+         </font>
+      </Label>
+      <DatePicker fx:id="dpDataNascimento" layoutX="252.0" layoutY="95.0" prefHeight="25.0" prefWidth="140.0" promptText="Data de Nascimento" />
+      <ImageView fitHeight="132.0" fitWidth="113.0" layoutX="21.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/cadastrarUsuario.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

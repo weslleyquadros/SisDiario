@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="443.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DesejoController">
+   <children>
+      <Label layoutX="212.0" layoutY="35.0" text="Lista de Desejos" AnchorPane.leftAnchor="212.0" AnchorPane.rightAnchor="211.0">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="140.0" layoutY="94.0" text="Desejo:" AnchorPane.leftAnchor="140.0" AnchorPane.rightAnchor="421.0" />
+      <TextField fx:id="tfDesejo" layoutX="202.0" layoutY="90.0" prefHeight="25.0" prefWidth="222.0" promptText="Escreva seu desejo" AnchorPane.leftAnchor="202.0" AnchorPane.rightAnchor="176.0" />
+      <RadioButton fx:id="rbAguardando" layoutX="140.0" layoutY="133.0" mnemonicParsing="false" selected="true" style="-fx-background-size: red;" text="Aguardando" AnchorPane.leftAnchor="140.0" AnchorPane.rightAnchor="373.0">
+         <toggleGroup>
+            <ToggleGroup fx:id="status" />
+         </toggleGroup></RadioButton>
+      <RadioButton fx:id="rbRealizado" layoutX="257.0" layoutY="133.0" mnemonicParsing="false" text="Realizado" toggleGroup="$status" AnchorPane.leftAnchor="257.0" AnchorPane.rightAnchor="271.0" />
+      <RadioButton fx:id="rbNaoRealizado" layoutX="374.0" layoutY="133.0" mnemonicParsing="false" text="Não realizado" toggleGroup="$status" AnchorPane.leftAnchor="374.0" AnchorPane.rightAnchor="131.0" />
+      <TableView fx:id="tvListDesejos" layoutX="93.0" layoutY="219.0" onMouseClicked="#handleOnMouseClicked" prefHeight="150.0" prefWidth="415.0" AnchorPane.leftAnchor="93.0" AnchorPane.rightAnchor="92.0">
+        <columns>
+          <TableColumn fx:id="tcDesejo" prefWidth="305.0" text="Desejo" />
+            <TableColumn fx:id="tcStatus" prefWidth="109.0" text="Status" />
+        </columns>
+      </TableView>
+      <Button fx:id="btSalvar" layoutX="134.0" layoutY="175.0" mnemonicParsing="false" onAction="#handleSalvar" prefHeight="36.0" prefWidth="72.0" text="Salvar" />
+      <Button fx:id="btAtualizar" layoutX="231.0" layoutY="175.0" mnemonicParsing="false" onAction="#handleAtualizar" prefHeight="36.0" prefWidth="72.0" text="Atualizar" />
+      <Button fx:id="btExcluir" layoutX="322.0" layoutY="175.0" mnemonicParsing="false" onAction="#handleExcluir" prefHeight="36.0" prefWidth="79.0" text="Excluir" />
+      <Button fx:id="btLimpar" layoutX="424.0" layoutY="175.0" mnemonicParsing="false" onAction="#handleLimpar" prefHeight="36.0" prefWidth="72.0" text="Limpar" />
+      <Button fx:id="btListar" layoutX="273.0" layoutY="387.0" mnemonicParsing="false" onAction="#handleListar" text="Listar" />
+   </children>
+</AnchorPane>

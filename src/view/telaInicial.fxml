@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TelaInicialController">
+   <children>
+      <Label layoutX="70.0" layoutY="14.0" prefHeight="70.0" prefWidth="447.0" text="Seja bem-vindo USUARIO">
+         <font>
+            <Font name="System Bold" size="36.0" />
+         </font>
+      </Label>
+      <Button fx:id="btEscreverDiario" layoutX="203.0" layoutY="109.0" mnemonicParsing="false" onAction="#handleAbrirEscreverDiario" prefHeight="80.0" prefWidth="164.0" style="-fx-background-color: #30A9DE;" text="Escrever no Diario" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Button>
+      <Button fx:id="btLerDiario" layoutX="392.0" layoutY="110.0" mnemonicParsing="false" onAction="#handleAbrirLerDiario" prefHeight="80.0" prefWidth="164.0" style="-fx-background-color: #30A9DE;" text="Ler Diario" textFill="#ffffffeb">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Button>
+      <ImageView fitHeight="35.0" fitWidth="39.0" layoutX="31.0" layoutY="211.0" pickOnBounds="true" preserveRatio="true" />
+      <Button fx:id="btDesejos" layoutX="203.0" layoutY="211.0" mnemonicParsing="false" onAction="#handleAbrirDesejos" prefHeight="80.0" prefWidth="164.0" style="-fx-background-color: #30A9DE;" text="Escrever Desejos" textFill="#ffffffeb">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Button>
+      <ImageView fitHeight="142.0" fitWidth="113.0" layoutX="31.0" layoutY="109.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/icone-de-usuario-do-sexo-masculino_17-810120247.jpg" />
+         </image>
+      </ImageView>
+      <Button fx:id="btTarefas" layoutX="392.0" layoutY="211.0" mnemonicParsing="false" onAction="#handleAbrirTarefas" prefHeight="80.0" prefWidth="164.0" style="-fx-background-color: #30A9DE;" text="Nova Tarefa" textFill="#ffffffeb">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Button>
+      <Button fx:id="btFinanceiro" layoutX="203.0" layoutY="306.0" mnemonicParsing="false" onAction="#handleAbrirFinanceiro" prefHeight="80.0" prefWidth="354.0" style="-fx-background-color: #30A9DE;" text="Gastos Financeiros" textFill="#ffffffeb">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Button>
+   </children>
+</AnchorPane>

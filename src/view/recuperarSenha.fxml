@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.gluonhq.charm.glisten.control.Icon?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="187.0" layoutY="72.0" text="RECUPERAR A SENHA">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <TextField layoutX="175.0" layoutY="119.0" prefHeight="32.0" prefWidth="310.0" promptText="Informe a nova senha" />
+      <TextField layoutX="175.0" layoutY="181.0" prefHeight="32.0" prefWidth="310.0" promptText="Repita a nova senha" />
+      <ImageView fitHeight="15.0" fitWidth="20.0" layoutX="217.0" layoutY="256.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="41.0" fitWidth="55.0" layoutX="382.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../recuperarSenha.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="41.0" fitWidth="55.0" layoutX="128.0" layoutY="115.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../senha.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="41.0" fitWidth="55.0" layoutX="128.0" layoutY="177.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../senha.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="367.0" layoutY="237.0" mnemonicParsing="false" prefHeight="69.0" prefWidth="112.0" style="-fx-background-color: #E53A40;" text="Cancelar" textFill="WHITE" />
+      <Button cache="true" layoutX="181.0" layoutY="237.0" mnemonicParsing="false" prefHeight="69.0" prefWidth="112.0" style="-fx-background-color: #30A9DE;" text="Salvar" textFill="WHITE" />
+      <Icon content="HELP_OUTLINE" layoutX="124.0" layoutY="248.0" prefWidth="0.0" />
+   </children>
+</AnchorPane>
