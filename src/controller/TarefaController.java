@@ -84,6 +84,11 @@ public class TarefaController extends Controller<Tarefa> implements Initializabl
 
 	@FXML
 	private TableColumn<Tarefa, String> tcStatustTarefa;
+	
+	
+	public  ToggleGroup group; 
+	
+	
 
 	@FXML
 	void handleAtualizar(ActionEvent event) {
@@ -92,31 +97,10 @@ public class TarefaController extends Controller<Tarefa> implements Initializabl
 		getTarefa().setDataTarefa(dpDatatarefa.getValue());
 		getTarefa().setDescricaoTarefa(tfDescricao.getText());
 
-		String output = "";
-
-		if (rbAguardando.isSelected()) {
-			output = rbAguardando.getText();
-			getTarefa().setStatusTarefa(output);
-			rbAguardando.setSelected(true);
-			rbAguardando.requestFocus();
-			
-		} 
 		
-		if (rbRealizada.isSelected()) {
-			output = rbRealizada.getText();
-			getTarefa().setStatusTarefa(output);
-			rbRealizada.setSelected(true);
-			rbRealizada.requestFocus();
-		} 
 		
-		if(rbNaoRealizado.isSelected()) {
-			output = rbNaoRealizado.getText();
-					
-			getTarefa().setStatusTarefa(output);
-		
-			rbNaoRealizado.setSelected(true);
-			rbNaoRealizado.requestFocus();
-		}
+		RadioButton radio = (RadioButton)group.getSelectedToggle();
+		getTarefa().setStatusTarefa(radio.getText());
 		
 
 		save(getTarefa());
@@ -171,25 +155,29 @@ handleListar(event);
 						dpDatatarefa.setValue(getTarefa().getDataTarefa());
 						tfDescricao.setText(getTarefa().getDescricaoTarefa());
 						
-					/*	String output = "";
+						group = new ToggleGroup();
 
-						if (rbAguardando.isSelected()) {
-							output = rbAguardando.getText();
-							rbAguardando.setText(getTarefa().getStatusTarefa());
+						rbAguardando.setToggleGroup(group);
+						rbRealizada.setToggleGroup(group);
+						rbNaoRealizado.setToggleGroup(group);
+						
+						String output = "";
+
+						if (getTarefa().getStatusTarefa().equals("Aguardando")) {
+							group.selectToggle(rbAguardando);
+							
+
+							
+						} 
+						
+						else if (getTarefa().getStatusTarefa().equals("Realizada")) {
+							group.selectToggle(rbRealizada);
+						} 
+						
+						else if(getTarefa().getStatusTarefa().equals("Não realizada")) {
+							group.selectToggle(rbNaoRealizado);
 						}
-
-						if (rbRealizada.isSelected()) {
-							output = rbRealizada.getText();
-							rbRealizada.setText(getTarefa().getStatusTarefa());
-						}
-
-						if (rbNaoRealizado.isSelected()) {
-							output = rbNaoRealizado.getText();
-
-							rbNaoRealizado.setText(getTarefa().getStatusTarefa());
-						}
-
-						*/
+						
 					
 
 					
@@ -208,7 +196,15 @@ handleListar(event);
 		getTarefa().setDataTarefa(dpDatatarefa.getValue());
 		getTarefa().setDescricaoTarefa(tfDescricao.getText());
 
-		String output = "";
+		
+		RadioButton radio = (RadioButton)group.getSelectedToggle();
+		getTarefa().setStatusTarefa(radio.getText());
+		
+		
+		
+		/*String output = "";
+		
+	
 		if (rbAguardando.isSelected()) {
 			output = rbAguardando.getText();
 			getTarefa().setStatusTarefa(output);
@@ -231,7 +227,7 @@ handleListar(event);
 		
 			rbNaoRealizado.setSelected(true);
 			rbNaoRealizado.requestFocus();
-		}
+		}*/
 		
 
 		tvTarefas.getItems().add(tarefa);
@@ -271,7 +267,7 @@ handleListar(event);
 		tcStatustTarefa.setCellValueFactory(new PropertyValueFactory<>("statusTarefa"));
 		
 		
-		final ToggleGroup group = new ToggleGroup();
+		group = new ToggleGroup();
 
 		rbAguardando.setToggleGroup(group);
 		rbAguardando.setSelected(true);
