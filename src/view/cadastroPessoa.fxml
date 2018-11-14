@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -12,31 +14,65 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="358.0" prefWidth="567.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PessoaController">
    <children>
-      <Button fx:id="btSalvar" layoutX="116.0" layoutY="231.0" mnemonicParsing="false" onAction="#handleSalvar" prefHeight="80.0" prefWidth="164.0" style="-fx-background-color: #30A9DE;" text="Salvar " textFill="WHITE">
+      <Button fx:id="btSalvar" layoutX="119.0" layoutY="242.0" mnemonicParsing="false" onAction="#handleSalvar" prefHeight="80.0" prefWidth="164.0" style="-fx-background-color: #30A9DE;" text="Salvar " textFill="WHITE">
          <font>
             <Font size="21.0" />
-         </font></Button>
-      <TextField fx:id="tfNome" layoutX="117.0" layoutY="84.0" prefHeight="25.0" prefWidth="327.0" promptText="Nome" />
-      <TextField fx:id="tfApelido" layoutX="116.0" layoutY="120.0" prefHeight="25.0" prefWidth="99.0" promptText="Apelido" />
-      <TextField fx:id="tfEmail" layoutX="116.0" layoutY="153.0" prefHeight="25.0" prefWidth="336.0" promptText="Email" />
-      <TextField fx:id="tfSenha" layoutX="116.0" layoutY="188.0" prefHeight="25.0" prefWidth="336.0" promptText="Senha" />
-      <ComboBox fx:id="cbSexo" layoutX="374.0" layoutY="120.0" prefHeight="25.0" prefWidth="79.0" promptText="SEXO" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <tooltip>
+            <Tooltip consumeAutoHidingEvents="false" graphicTextGap="2.0" opacity="0.49" text="Cadastrar usuario" textOverrun="CENTER_WORD_ELLIPSIS">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Tooltip>
+         </tooltip></Button>
+      <TextField fx:id="tfNome" layoutX="111.0" layoutY="84.0" prefHeight="25.0" prefWidth="346.0" promptText="Nome">
+         <tooltip>
+            <Tooltip opacity="0.37" text="Escreva seu nome completo" />
+         </tooltip></TextField>
+      <TextField fx:id="tfCpf" layoutX="111.0" layoutY="127.0" prefHeight="25.0" prefWidth="137.0" promptText="CPF">
+         <tooltip>
+            <Tooltip opacity="0.37" text="Digite o seu CPF(Sem pontos e traços)" />
+         </tooltip></TextField>
+      <TextField fx:id="tfEmail" layoutX="110.0" layoutY="167.0" prefHeight="25.0" prefWidth="346.0" promptText="Email">
+         <tooltip>
+            <Tooltip opacity="0.37" text="Digite o seu e-mail" />
+         </tooltip></TextField>
+      <TextField fx:id="tfSenha" layoutX="110.0" layoutY="205.0" prefHeight="25.0" prefWidth="346.0" promptText="Senha">
+         <tooltip>
+            <Tooltip opacity="0.37" text="Digite sua senha " />
+         </tooltip></TextField>
+      <ComboBox fx:id="cbSexo" layoutX="387.0" layoutY="127.0" prefHeight="25.0" prefWidth="70.0" promptText="Sexo">
+         <tooltip>
+            <Tooltip opacity="0.37" text="Informe seu sexo" />
+         </tooltip></ComboBox>
       <AnchorPane layoutX="107.0" layoutY="242.0" />
-      <Button fx:id="btCancelar" layoutX="292.0" layoutY="231.0" mnemonicParsing="false" onAction="#handleCancelar" prefHeight="80.0" prefWidth="164.0" style="-fx-background-color: #DE7E73;" text="Cancelar" textFill="WHITE">
+      <Button fx:id="btCancelar" layoutX="292.0" layoutY="242.0" mnemonicParsing="false" onAction="#handleCancelar" prefHeight="80.0" prefWidth="164.0" style="-fx-background-color: #DE7E73;" text="Cancelar" textFill="WHITE">
          <font>
             <Font size="21.0" />
-         </font></Button>
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <tooltip>
+            <Tooltip opacity="0.37" text="Limpar campos preenchidos" />
+         </tooltip></Button>
       <ImageView fitHeight="80.0" fitWidth="99.0" layoutX="-2.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../cadastrarUsuario.png" />
          </image>
       </ImageView>
-      <Label layoutX="148.0" layoutY="14.0" text="Cadastro de Pessoa">
+      <Label layoutX="148.0" layoutY="14.0" text="Cadastro de Usuario">
          <font>
             <Font name="System Bold" size="27.0" />
          </font>
       </Label>
-      <DatePicker fx:id="dpDataNascimento" layoutX="222.0" layoutY="120.0" prefHeight="25.0" prefWidth="140.0" promptText="Data de Nascimento" />
+      <DatePicker fx:id="dpDataNascimento" layoutX="254.0" layoutY="127.0" prefHeight="25.0" prefWidth="128.0" promptText="Data de Nascimento">
+         <tooltip>
+            <Tooltip opacity="0.37" text="Informe sua data de nascimento" />
+         </tooltip></DatePicker>
       <ImageView fitHeight="89.0" fitWidth="99.0" layoutX="8.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@img/cadastrarUsuario.png" />
