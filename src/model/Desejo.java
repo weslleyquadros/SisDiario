@@ -13,18 +13,14 @@ import javax.persistence.OneToMany;
 @Entity
 public class Desejo extends DefaultEntity<Desejo> {
 
-		
 
-
-
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 4042343814226240056L;
 	private String descricao;
 	private String status;
 	
-
+	@ManyToOne
+	@JoinColumn(name="idPessoa")
+	private Pessoa pessoa;
 
 	//@OneToMany(cascade=CascadeType.ALL, mappedBy="cliente")
 	//private List<Telefone> listaTelefone;
@@ -60,6 +56,14 @@ public class Desejo extends DefaultEntity<Desejo> {
 
 	public void setStatus(String status) {
 		this.status = status;
+	}
+
+	public Pessoa getPessoa() {
+		return pessoa;
+	}
+
+	public void setPessoa(Pessoa pessoa) {
+		this.pessoa = pessoa;
 	}
 
 

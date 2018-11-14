@@ -26,7 +26,7 @@ public class PessoaController extends Controller<Pessoa> implements Initializabl
 	private TextField tfNome;
 
 	@FXML
-	private TextField tfApelido;
+	private TextField tfCpf;
 
 	@FXML
 	private TextField tfEmail;
@@ -92,7 +92,7 @@ public class PessoaController extends Controller<Pessoa> implements Initializabl
 	@FXML
 	void handleSalvar(ActionEvent event) {
 		getPessoa().setNome(tfNome.getText());
-		getPessoa().setApelido(tfApelido.getText());
+		getPessoa().setCpf(tfCpf.getText());
 		getPessoa().setDataAniversaio(dpDataNascimento.getValue());
 		getPessoa().setEmail(tfEmail.getText());
 		getPessoa().setSenha(tfSenha.getText());
@@ -106,7 +106,7 @@ public class PessoaController extends Controller<Pessoa> implements Initializabl
 	void handleCancelar(ActionEvent event) {
 		// tfCpf.setText("");
 		tfNome.setText("");
-		tfApelido.setText("");
+		tfCpf.setText("");
 		dpDataNascimento.setValue(null);
 		tfEmail.setText("");
 		tfSenha.setText("");

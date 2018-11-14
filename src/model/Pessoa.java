@@ -17,16 +17,17 @@ public class Pessoa extends DefaultEntity<Pessoa> {
 	
 	private String cpf;
 	private String nome;
-	private String apelido;
 	private String senha;
 	private String email;
 
 
-	//@OneToMany(cascade=CascadeType.ALL, mappedBy="cliente")
-	//private List<Telefone> listaTelefone;
+	
 	
 	@Column(columnDefinition="Date")
 	private LocalDate dataAniversaio;
+	
+	@OneToMany(cascade=CascadeType.ALL, mappedBy="pessoa")
+	private List<Desejo> listaDesejo;
 	
 /*	@OneToMany(cascade=CascadeType.ALL, mappedBy="pessoa")
 	private List<Telefone> listaTelefone;*/
@@ -37,24 +38,16 @@ public class Pessoa extends DefaultEntity<Pessoa> {
 		
 	}
 
-	public Pessoa(String cpf, String nome, String apelido, String senha, String email, LocalDate dataAniversario) {
+	public Pessoa(String cpf, String nome, String senha, String email, LocalDate dataAniversario) {
 		super();
 		this.cpf = cpf;
 		this.nome = nome;
-		this.apelido = apelido;
 		this.senha = senha;
 		this.email = email;
 		this.dataAniversaio = dataAniversario;
 		
 	}
 
-	public String getApelido() {
-		return apelido;
-	}
-
-	public void setApelido(String apelido) {
-		this.apelido = apelido;
-	}
 
 	public String getSenha() {
 		return senha;

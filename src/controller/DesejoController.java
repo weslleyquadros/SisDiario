@@ -5,6 +5,10 @@ import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.validation.Valid;
+
 import factory.JPAFactory;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
@@ -22,15 +26,16 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
-
+import model.DefaultEntity;
 import model.Desejo;
-
+import model.Pessoa;
 import repository.DesejosRepository;
 
 
 public class DesejoController extends Controller<Desejo> implements Initializable {
 
 	private Desejo desejo;
+	private Pessoa pessoa;
     @FXML
     private TextField tfDesejo;
 
@@ -150,6 +155,7 @@ public class DesejoController extends Controller<Desejo> implements Initializabl
     @FXML
     void handleSalvar(ActionEvent event) {
     	getDesejo().setDescricao(tfDesejo.getText());
+    	getDesejo().setPessoa(pessoa);
     	
         	
     	
