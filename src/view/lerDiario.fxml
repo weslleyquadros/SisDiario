@@ -15,68 +15,79 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<TabPane fx:id="tpAbas" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="543.0" prefWidth="734.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LerDiarioController">
-  <tabs>
-    <Tab text="Ler diario">
-      <content>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-               <children>
-                  <Label layoutX="177.0" layoutY="120.0" prefHeight="30.0" text="Data:">
-                     <font>
-                        <Font size="22.0" />
-                     </font>
-                  </Label>
-                  <Button layoutX="511.0" layoutY="46.0" mnemonicParsing="false" onAction="#handlePesquisar" prefHeight="30.0" prefWidth="80.0" text="Buscar" />
-                  <TableView fx:id="tvListDiarios" layoutX="37.0" layoutY="157.0" onMouseClicked="#handleOnMouseClicked" prefHeight="311.0" prefWidth="666.0">
-                     <columns>
-                        <TableColumn fx:id="tcIdDiario" editable="false" prefWidth="45.0" text="Id" />
-                        <TableColumn fx:id="tcTitulo" editable="false" prefWidth="140.0" text="Titulo" />
-                        <TableColumn fx:id="tcData" editable="false" text="Data" />
-                        <TableColumn fx:id="tcTipo" editable="false" prefWidth="121.0" text="Tipo" />
-                        <TableColumn fx:id="tcRelato" editable="false" prefWidth="279.0" text="Relato" />
-                     </columns>
-                  </TableView>
-                  <DatePicker fx:id="dpData" layoutX="269.0" layoutY="120.0" promptText="Selecione a data" />
-                  <Label layoutX="173.0" layoutY="46.0" text="Titulo:">
-                     <font>
-                        <Font size="22.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="tfTituloPesquisar" layoutX="267.0" layoutY="49.0" prefHeight="25.0" prefWidth="206.0" promptText="Digite o titulo do seu Diario" />
-               </children></AnchorPane>
-      </content>
-    </Tab>
-    <Tab text="Diario Selecionado">
-      <content>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-               <children>
-                  <Label layoutX="96.0" layoutY="11.0" text="Titulo:">
-                     <font>
-                        <Font size="22.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="74.0" layoutY="165.0" text="Relatos: " />
-                  <TextField fx:id="tfTitulo" editable="false" layoutX="209.0" layoutY="15.0" prefHeight="25.0" prefWidth="206.0" promptText="Titulo do seu Diario" />
-                  <Label layoutX="101.0" layoutY="49.0" text="Data:">
-                     <font>
-                        <Font size="22.0" />
-                     </font>
-                  </Label>
-                  <ComboBox fx:id="dpTipo" layoutX="312.0" layoutY="106.0" prefHeight="25.0" prefWidth="224.0" promptText="Tipo de mensagem" />
-                  <Label layoutX="71.0" layoutY="103.0" text="Tipo de mensagem:">
-                     <font>
-                        <Font size="22.0" />
-                     </font>
-                  </Label>
-                  <TextArea fx:id="taAnotacoes" editable="false" layoutX="67.0" layoutY="189.0" prefHeight="246.0" prefWidth="612.0" />
-                  <DatePicker fx:id="dtDataCadastro" editable="false" layoutX="209.0" layoutY="52.0" prefHeight="25.0" prefWidth="206.0" />
-                  <ImageView fitHeight="122.0" fitWidth="141.0" layoutX="568.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@img/livro.png" />
-                     </image>
-                  </ImageView>
-               </children></AnchorPane>
-      </content>
-    </Tab>
-  </tabs>
-</TabPane>
+
+<AnchorPane fx:id="apLerDiario" style="-fx-background-color: #72CCC9;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LerDiarioController">
+   <children>
+      <TabPane fx:id="tpAbas" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="543.0" prefWidth="734.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <tabs>
+          <Tab text="Ler diario">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="177.0" layoutY="120.0" prefHeight="30.0" text="Data:" textFill="WHITE">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Label>
+                        <Button layoutX="511.0" layoutY="46.0" mnemonicParsing="false" onAction="#handlePesquisar" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: red;" text="Buscar" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+                        <TableView fx:id="tvListDiarios" layoutX="37.0" layoutY="157.0" onMouseClicked="#handleOnMouseClicked" prefHeight="311.0" prefWidth="666.0">
+                           <columns>
+                              <TableColumn fx:id="tcIdDiario" editable="false" prefWidth="45.0" text="Id" />
+                              <TableColumn fx:id="tcTitulo" editable="false" prefWidth="140.0" text="Titulo" />
+                              <TableColumn fx:id="tcData" editable="false" text="Data" />
+                              <TableColumn fx:id="tcTipo" editable="false" prefWidth="121.0" text="Tipo" />
+                              <TableColumn fx:id="tcRelato" editable="false" prefWidth="279.0" text="Relato" />
+                           </columns>
+                        </TableView>
+                        <DatePicker fx:id="dpData" layoutX="269.0" layoutY="120.0" promptText="Selecione a data" />
+                        <Label layoutX="173.0" layoutY="46.0" text="Titulo:" textFill="WHITE">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="tfTituloPesquisar" layoutX="267.0" layoutY="49.0" prefHeight="25.0" prefWidth="206.0" promptText="Digite o titulo do seu Diario" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Diario Selecionado">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="96.0" layoutY="11.0" text="Titulo:" textFill="WHITE">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="74.0" layoutY="165.0" text="Relatos: " textFill="WHITE" />
+                        <TextField fx:id="tfTitulo" editable="false" layoutX="209.0" layoutY="15.0" prefHeight="25.0" prefWidth="206.0" promptText="Titulo do seu Diario" />
+                        <Label layoutX="101.0" layoutY="49.0" text="Data:" textFill="WHITE">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Label>
+                        <ComboBox fx:id="dpTipo" layoutX="312.0" layoutY="106.0" prefHeight="25.0" prefWidth="224.0" promptText="Tipo de mensagem" />
+                        <Label layoutX="71.0" layoutY="103.0" text="Tipo de mensagem:" textFill="WHITE">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Label>
+                        <TextArea fx:id="taAnotacoes" editable="false" layoutX="67.0" layoutY="189.0" prefHeight="246.0" prefWidth="612.0" />
+                        <DatePicker fx:id="dtDataCadastro" editable="false" layoutX="209.0" layoutY="52.0" prefHeight="25.0" prefWidth="206.0" />
+                        <ImageView fitHeight="122.0" fitWidth="141.0" layoutX="568.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/livro.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>

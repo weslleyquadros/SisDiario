@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="borderPrincipal" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="437.0" prefWidth="668.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TelaInicialController">
+   <top>
+      <AnchorPane prefHeight="47.0" prefWidth="600.0" style="-fx-background-color: #22B2B0;" BorderPane.alignment="CENTER" />
+   </top>
+   <center>
+      <ScrollPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+   </center>
+   <left>
+      <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #22B2B0;" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="btEscreverDiario" mnemonicParsing="false" onAction="#handleAbrirEscreverDiario" prefHeight="59.0" prefWidth="69.0" style="-fx-background-color: none;" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="58.0" fitWidth="99.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/escrever.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btLerDiario" mnemonicParsing="false" onAction="#handleAbrirLerDiario" prefHeight="62.0" prefWidth="72.0" style="-fx-background-color: none;" textFill="#ffffffeb">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="59.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/ler.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btDesejos" mnemonicParsing="false" onAction="#handleAbrirDesejos" prefHeight="62.0" prefWidth="66.0" style="-fx-background-color: none;" textFill="#ffffffeb">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="66.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/desejoIcon.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btTarefas" mnemonicParsing="false" onAction="#handleAbrirTarefas" prefHeight="55.0" prefWidth="62.0" style="-fx-background-color: none;">
+               <graphic>
+                  <ImageView fitHeight="71.0" fitWidth="63.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/tarefasIcon.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button fx:id="btFinanceiro" mnemonicParsing="false" onAction="#handleAbrirFinanceiro" prefHeight="65.0" prefWidth="68.0" style="-fx-background-color: none;">
+               <graphic>
+                  <ImageView fitHeight="73.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/contrGastos.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+         </children>
+      </VBox>
+   </left>
+</BorderPane>

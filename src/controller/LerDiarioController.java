@@ -26,6 +26,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import model.Anotacoes;
 
 import model.Diario;
@@ -35,6 +36,9 @@ import repository.LerDiarioRepository;
 
 public class LerDiarioController extends Controller<Diario> implements Initializable {
 
+	@FXML
+    private AnchorPane apLerDiario;
+	
 	private Diario diario;
 
 	@FXML

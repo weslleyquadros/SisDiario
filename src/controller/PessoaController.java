@@ -17,7 +17,7 @@ import model.Sexo;
 
 public class PessoaController extends Controller<Pessoa> implements Initializable{
 
-	private Pessoa pessoa;
+	private static Pessoa pessoa;
 
 	@FXML
 	private Button btSalvar;
@@ -192,14 +192,14 @@ public class PessoaController extends Controller<Pessoa> implements Initializabl
 
 	}
 
-	public Pessoa getPessoa() {
+	public static Pessoa getPessoa() {
 		if (pessoa == null)
 			pessoa = new Pessoa();
 		return pessoa;
 	}
 
-	public void setPessoa(Pessoa pessoa) {
-		this.pessoa = pessoa;
+	public static void setPessoa(Pessoa pessoa) {
+		pessoa = pessoa;
 	}
 
 }

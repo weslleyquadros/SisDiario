@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
@@ -11,30 +12,17 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="624.0" prefWidth="899.0" style="-fx-background-color: #011638;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.GastosController">
+<AnchorPane fx:id="apGastos" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="624.0" prefWidth="899.0" style="-fx-background-color: #72CCC9;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.GastosController">
    <children>
-      <Button fx:id="btSalvar" layoutX="223.0" layoutY="237.0" mnemonicParsing="false" onAction="#handleSalvar" prefHeight="32.0" prefWidth="69.0" style="-fx-background-color: #30A9DE;" text="Adicionar" />
-      <Label layoutX="295.0" layoutY="27.0" text="Controle Financeiro" textFill="#e0e3da">
-         <font>
-            <Font name="System Bold" size="27.0" />
-         </font>
-      </Label>
-      <TextField fx:id="tfSaldoAtual" layoutX="123.0" layoutY="179.0" prefHeight="32.0" prefWidth="260.0" promptText="Saldo Atual" />
-      <ComboBox fx:id="cbMesRef" layoutX="123.0" layoutY="126.0" prefHeight="32.0" prefWidth="260.0" promptText="Mês de referência" />
-      <Button fx:id="btExcluir" layoutX="429.0" layoutY="237.0" mnemonicParsing="false" onAction="#handleExcluir" prefHeight="32.0" prefWidth="69.0" style="-fx-background-color: #E71D36;" text="Excluir" />
       <Label fx:id="lbValor" ellipsisString="#E0E3DA" layoutX="54.0" layoutY="314.0" text="Valor total atual R$:" textFill="#e0e3da">
          <font>
             <Font name="System Bold Italic" size="16.0" />
          </font>
       </Label>
-      <Label layoutX="391.0" layoutY="331.0" text="Saídas" textFill="#e0e3da">
-         <font>
-            <Font name="System Bold" size="19.0" />
-         </font>
-      </Label>
-      <TableView fx:id="tvSaidas" layoutX="168.0" layoutY="371.0" onMouseClicked="#handleOnClicked" prefHeight="143.0" prefWidth="523.0">
+      <TableView fx:id="tvSaidas" layoutX="168.0" layoutY="371.0" onMouseClicked="#handleOnClicked" prefHeight="143.0" prefWidth="523.0" AnchorPane.leftAnchor="168.0" AnchorPane.rightAnchor="208.0">
         <columns>
           <TableColumn fx:id="tcDataSaida" prefWidth="114.0" text="Data Saída" />
             <TableColumn fx:id="tcMes" prefWidth="93.0" text="Mês Referência" />
@@ -44,19 +32,93 @@
             <SepiaTone />
          </effect>
       </TableView>
-      <Button fx:id="btAtualizar" layoutX="322.0" layoutY="237.0" mnemonicParsing="false" onAction="#handleAtualizar" prefHeight="32.0" prefWidth="69.0" style="-fx-background-color: #5CAB7D;" text="Atualizar" />
-      <Button fx:id="btLimpar" layoutX="530.0" layoutY="237.0" mnemonicParsing="false" onAction="#handleLimpar" prefHeight="32.0" prefWidth="69.0" text="Limpar" />
-      <TextField fx:id="tfDescricao" layoutX="400.0" layoutY="179.0" prefHeight="32.0" prefWidth="279.0" promptText="Descrição" />
-      <DatePicker fx:id="dpDataSaida" layoutX="400.0" layoutY="126.0" prefHeight="32.0" prefWidth="229.0" promptText="Data Saída" />
-      <ImageView fitHeight="201.0" fitWidth="199.0" layoutX="691.0" layoutY="27.0" onMouseClicked="#handleAbrir" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@img/financeiro.png" />
-         </image>
-      </ImageView>
-      <Button fx:id="btListar" layoutX="395.0" layoutY="535.0" mnemonicParsing="false" onAction="#handleListar" prefHeight="32.0" prefWidth="69.0" text="Listar">
-         <font>
-            <Font name="System Bold Italic" size="12.0" />
-         </font>
-      </Button>
+      <HBox alignment="CENTER" layoutX="237.0" layoutY="17.0" prefHeight="58.0" prefWidth="336.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Label text="Controle Financeiro" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="27.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox alignment="TOP_RIGHT" layoutX="679.0" layoutY="25.0" prefHeight="199.0" prefWidth="200.0" AnchorPane.leftAnchor="679.0" AnchorPane.rightAnchor="20.0">
+         <children>
+            <ImageView fitHeight="201.0" fitWidth="199.0" onMouseClicked="#handleAbrir" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/financeiro.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+      <HBox alignment="TOP_CENTER" layoutX="99.0" layoutY="113.0" prefHeight="58.0" prefWidth="554.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <ComboBox fx:id="cbMesRef" prefHeight="32.0" prefWidth="260.0" promptText="Mês de referência">
+               <HBox.margin>
+                  <Insets left="20.0" right="70.0" />
+               </HBox.margin>
+            </ComboBox>
+            <DatePicker fx:id="dpDataSaida" prefHeight="32.0" prefWidth="229.0" promptText="Data Saída">
+               <HBox.margin>
+                  <Insets right="100.0" />
+               </HBox.margin>
+            </DatePicker>
+         </children>
+      </HBox>
+      <HBox alignment="TOP_CENTER" layoutX="108.0" layoutY="170.0" prefHeight="51.0" prefWidth="588.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <TextField fx:id="tfSaldoAtual" prefHeight="32.0" prefWidth="260.0" promptText="Saldo Atual">
+               <HBox.margin>
+                  <Insets left="40.0" right="60.0" />
+               </HBox.margin>
+            </TextField>
+            <TextField fx:id="tfDescricao" prefHeight="32.0" prefWidth="233.0" promptText="Descrição">
+               <HBox.margin>
+                  <Insets right="130.0" />
+               </HBox.margin>
+            </TextField>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" layoutX="108.0" layoutY="220.0" prefHeight="67.0" prefWidth="592.0" AnchorPane.leftAnchor="108.0" AnchorPane.rightAnchor="199.0">
+         <children>
+            <Button fx:id="btSalvar" mnemonicParsing="false" onAction="#handleSalvar" prefHeight="32.0" prefWidth="69.0" style="-fx-background-color: #30A9DE;" text="Adicionar" textFill="WHITE">
+               <HBox.margin>
+                  <Insets right="40.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="btExcluir" mnemonicParsing="false" onAction="#handleExcluir" prefHeight="32.0" prefWidth="69.0" style="-fx-background-color: #E71D36;" text="Excluir" textFill="WHITE">
+               <HBox.margin>
+                  <Insets right="40.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="btAtualizar" mnemonicParsing="false" onAction="#handleAtualizar" prefHeight="32.0" prefWidth="69.0" style="-fx-background-color: #5CAB7D;" text="Atualizar" textFill="WHITE">
+               <HBox.margin>
+                  <Insets right="40.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="btLimpar" mnemonicParsing="false" onAction="#handleLimpar" prefHeight="32.0" prefWidth="69.0" style="-fx-background-color: #ffc935;" text="Limpar" textFill="WHITE">
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" layoutX="328.0" layoutY="331.0" prefHeight="32.0" prefWidth="176.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Label text="Saídas" textFill="#e0e3da">
+               <font>
+                  <Font name="System Bold" size="19.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" layoutX="330.0" layoutY="522.0" prefHeight="58.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Button fx:id="btListar" mnemonicParsing="false" onAction="#handleListar" prefHeight="32.0" prefWidth="69.0" style="-fx-background-color: #360244;" text="Listar" textFill="WHITE">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
    </children>
 </AnchorPane>

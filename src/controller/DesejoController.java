@@ -1,5 +1,6 @@
 package controller;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.Optional;
@@ -10,6 +11,7 @@ import javax.persistence.Id;
 import javax.validation.Valid;
 
 import factory.JPAFactory;
+import factory.LoginFactory;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -26,6 +28,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import model.DefaultEntity;
 import model.Desejo;
 import model.Pessoa;
@@ -35,7 +38,13 @@ import repository.DesejosRepository;
 public class DesejoController extends Controller<Desejo> implements Initializable {
 
 	private Desejo desejo;
-	private Pessoa pessoa;
+	private static Pessoa pessoa;
+	
+	@FXML
+    private AnchorPane apDesejo;
+	
+	
+	
     @FXML
     private TextField tfDesejo;
 
@@ -153,10 +162,19 @@ public class DesejoController extends Controller<Desejo> implements Initializabl
     }
 
     @FXML
-    void handleSalvar(ActionEvent event) {
+    void handleSalvar(ActionEvent event) throws IOException {
     	getDesejo().setDescricao(tfDesejo.getText());
-    	getDesejo().setPessoa(pessoa);
     	
+    	
+    	getDesejo().setPessoa(super.getPessoa());
+    	
+    	
+    	LoginController pegarId = LoginFactory.getInstance();
+    	
+    	
+    	setPessoa(pegarId.getPessoa());
+    	
+    	System.out.println("NOME:" + pessoa);
         	
     	
     	String output="";
@@ -242,6 +260,8 @@ public class DesejoController extends Controller<Desejo> implements Initializabl
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
 		// setando o focus no text field cpf
+    	
+    	super.ajustarPane(apDesejo);
 		tfDesejo.requestFocus();
 
 		tcDesejo.setCellValueFactory(new PropertyValueFactory<>("descricao"));
@@ -277,6 +297,14 @@ public class DesejoController extends Controller<Desejo> implements Initializabl
 
 	public void setDesejo(Desejo desejo) {
 		this.desejo = desejo;
+	}
+
+	public static Pessoa getPessoa() {
+		return pessoa;
+	}
+
+	public static void setPessoa(Pessoa pessoa) {
+		DesejoController.pessoa = pessoa;
 	}
 
 	

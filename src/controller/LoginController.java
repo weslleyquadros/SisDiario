@@ -4,23 +4,28 @@ import java.io.IOException;
 import java.util.List;
 
 import factory.JPAFactory;
+import factory.LoginFactory;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.Desejo;
 import model.Pessoa;
+
 import repository.DesejosRepository;
 import repository.UsuarioRepository;
 
-public class LoginController {
-	private Pessoa pessoa;
+public class LoginController extends Controller<Pessoa> {
+	private static Pessoa pessoa;
 	
 	@FXML
     private Button btEsqueceuSenha;
@@ -55,6 +60,20 @@ public class LoginController {
 	   
 
     }
+    
+    @FXML
+    void handleFechar(MouseEvent event)  {
+	    	
+    	if (event.getButton().equals(MouseButton.PRIMARY)) {
+			// VERIFICANDO SE A QUANTIDADE DE CLIQUES NO BOTÃƒO PRIMÃ�RIO Ã‰ IGUAL A 2
+			if (event.getClickCount() == 1) {
+				System.exit(0); 
+				}
+			}
+				
+
+	 
+    }
 
     @FXML
     void handleEsqueceuSenha(ActionEvent event) throws IOException {
@@ -79,17 +98,25 @@ public class LoginController {
 		UsuarioRepository repository = new UsuarioRepository(JPAFactory.getEntityManager());
 		List<Pessoa> lista = repository.getPessoaLogin(tfLogin.getText(), pfSenha.getText());
 
+		for (Pessoa listaUsuario : lista ) {
+			
+			listaUsuario.getId();
+			Controller<Pessoa> controller = new Controller<Pessoa>();
+			Controller.setPessoa(listaUsuario);
+			
+		}
 		
 		if(!lista.isEmpty()) {
-    		FXMLLoader fXMLLoader = new FXMLLoader();
-    		fXMLLoader.setLocation(getClass().getResource("/view/telaInicial.fxml"));
-    		Stage stage = new Stage();
-    		Scene scene = new Scene(fXMLLoader.load());
-    		stage.setScene(scene);
 
-    		stage.initModality(Modality.APPLICATION_MODAL);
-    		stage.setTitle("Inicio --- SisDiario");
-    		stage.show();
+	    	Button button = (Button) event.getSource();
+	    	
+	    	Stage stage = (Stage) button.getScene().getWindow();
+	    	
+	    	stage.close();
+			
+		      
+			
+			
 		}
 		
 //    	if(tfLogin.getText().equals("weslley") && pfSenha.getText().equals("1234")){
@@ -97,7 +124,22 @@ public class LoginController {
     		
     	
     	else
-    		lbMensagem.setText("Usu�rio ou senha incorretos.Tente novamente!");
+    		lbMensagem.setText("Usuário ou senha incorretos.Tente novamente!");
 
     }
+
+	public static Pessoa getPessoa() {
+		return pessoa;
+	}
+
+	public static void setPessoa(Pessoa pessoa) {
+		LoginController.pessoa = pessoa;
+	}
+	public void getParent(Parent root) {
+	
+		
+	}
+	public void setParent(Parent root) {
+				
+	}
 }

@@ -36,11 +36,15 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class GastosController extends Controller<Gastos> implements Initializable {
 
+	@FXML
+    private AnchorPane apGastos;
+	
 	private Gastos gastos;
 	@FXML
 	private TextField tfSaldoAtual;

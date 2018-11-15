@@ -25,11 +25,15 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import model.Anotacoes;
 import model.Diario;
 
 public class DiarioController extends Controller<Diario> implements Initializable {
 
+	@FXML
+    private AnchorPane apDiario;
+	
 	private Diario diario;
 
 	@FXML
@@ -90,6 +94,7 @@ public class DiarioController extends Controller<Diario> implements Initializabl
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// setando o focus no text field cpf
+		super.ajustarPane(apDiario);
 		tfTitulo.requestFocus();
 
 		dpTipo.setItems(list);
