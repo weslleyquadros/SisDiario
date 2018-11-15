@@ -12,18 +12,18 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="apTarefas" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="545.0" prefWidth="737.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TarefaController">
+<AnchorPane fx:id="apTarefas" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="545.0" prefWidth="737.0" style="-fx-background-color: #72CCC9;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TarefaController">
    <children>
-      <Label layoutX="265.0" layoutY="35.0" text="Lista de Tarefas" AnchorPane.leftAnchor="265.0" AnchorPane.rightAnchor="158.0">
+      <Label layoutX="265.0" layoutY="35.0" text="Lista de Tarefas" textFill="WHITE" AnchorPane.leftAnchor="265.0" AnchorPane.rightAnchor="158.0">
          <font>
-            <Font size="25.0" />
+            <Font name="System Bold" size="25.0" />
          </font>
       </Label>
-      <Label layoutX="193.0" layoutY="94.0" text="Título: " AnchorPane.leftAnchor="193.0" AnchorPane.rightAnchor="368.0" />
-      <TextField fx:id="tfTitulo" layoutX="255.0" layoutY="90.0" prefHeight="25.0" prefWidth="222.0" promptText="Escreva o título" AnchorPane.leftAnchor="255.0" AnchorPane.rightAnchor="160.0" />
-      <RadioButton fx:id="rbAguardando" layoutX="212.0" layoutY="204.0" mnemonicParsing="false" text="Aguardando" AnchorPane.leftAnchor="212.0" AnchorPane.rightAnchor="301.0" />
-      <RadioButton fx:id="rbRealizada" layoutX="311.0" layoutY="204.0" mnemonicParsing="false" text="Realizada" AnchorPane.leftAnchor="311.0" AnchorPane.rightAnchor="217.0" />
-      <RadioButton fx:id="rbNaoRealizado" layoutX="395.0" layoutY="204.0" mnemonicParsing="false" text="Não realizada" AnchorPane.leftAnchor="395.0" AnchorPane.rightAnchor="110.0" />
+      <Label layoutX="193.0" layoutY="94.0" text="Título: " textFill="WHITE" AnchorPane.leftAnchor="193.0" AnchorPane.rightAnchor="368.0" />
+      <TextField fx:id="tfTitulo" layoutX="255.0" layoutY="90.0" prefHeight="25.0" prefWidth="224.0" promptText="Escreva o título" />
+      <RadioButton fx:id="rbAguardando" layoutX="212.0" layoutY="204.0" mnemonicParsing="false" text="Aguardando" textFill="WHITE" AnchorPane.leftAnchor="212.0" AnchorPane.rightAnchor="301.0" />
+      <RadioButton fx:id="rbRealizada" layoutX="311.0" layoutY="204.0" mnemonicParsing="false" text="Realizada" textFill="WHITE" AnchorPane.leftAnchor="311.0" AnchorPane.rightAnchor="217.0" />
+      <RadioButton fx:id="rbNaoRealizado" layoutX="395.0" layoutY="204.0" mnemonicParsing="false" text="Não realizada" textFill="WHITE" AnchorPane.leftAnchor="395.0" AnchorPane.rightAnchor="110.0" />
       <Button fx:id="btSalvar" layoutX="184.0" layoutY="246.0" mnemonicParsing="false" onAction="#handleSalvar" prefHeight="36.0" prefWidth="72.0" style="-fx-background-color: #30A9DE;" text="Salvar" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
@@ -41,10 +41,10 @@
             <Font name="System Bold" size="12.0" />
          </font></Button>
       <Label layoutX="196.0" layoutY="115.0" />
-      <Label layoutX="193.0" layoutY="132.0" text="Data:" />
+      <Label layoutX="193.0" layoutY="132.0" text="Data:" textFill="WHITE" />
       <DatePicker fx:id="dpDatatarefa" layoutX="256.0" layoutY="128.0" prefHeight="25.0" prefWidth="222.0" />
       <TextField fx:id="tfDescricao" layoutX="255.0" layoutY="167.0" prefHeight="25.0" prefWidth="222.0" promptText="Escreva sua tarefa" />
-      <Label layoutX="193.0" layoutY="171.0" text="Descrição:" />
+      <Label layoutX="193.0" layoutY="171.0" text="Descrição:" textFill="WHITE" />
       <TableView fx:id="tvTarefas" layoutX="33.0" layoutY="293.0" onMouseClicked="#handleOnMouseClicked" prefHeight="144.0" prefWidth="679.0">
         <columns>
             <TableColumn fx:id="tcId" prefWidth="41.0" style="-fx-background-color: #cff0da;" text="Id" />
@@ -54,7 +54,7 @@
             <TableColumn fx:id="tcStatustTarefa" prefWidth="112.0" style="-fx-background-color: #cff0da;" text="STATUS" />
         </columns>
       </TableView>
-      <Label layoutX="147.0" layoutY="204.0" text="Status:" />
+      <Label layoutX="147.0" layoutY="204.0" text="Status:" textFill="WHITE" />
       <Button fx:id="btListar" layoutX="330.0" layoutY="455.0" mnemonicParsing="false" onAction="#handleListar" prefHeight="36.0" prefWidth="72.0" style="-fx-background-color: #005f6b;" text="Listar" textFill="WHITE">
          <font>
             <Font name="System Bold Italic" size="12.0" />

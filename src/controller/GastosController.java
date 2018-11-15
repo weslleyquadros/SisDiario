@@ -167,8 +167,10 @@ public class GastosController extends Controller<Gastos> implements Initializabl
 
 		save(getGastos());
 		atualizarValor();
+		
 		handleLimpar(event);
 		handleListar(event);
+	
 	}
 
 	@FXML
@@ -202,6 +204,7 @@ public class GastosController extends Controller<Gastos> implements Initializabl
 		gastos = null;
 		// setando o focus no Titulo
 		cbMesRef.requestFocus();
+		atualizarBotoes();
 
 	}
 
@@ -219,6 +222,7 @@ public class GastosController extends Controller<Gastos> implements Initializabl
 		}
 
 		tvSaidas.setItems(FXCollections.observableList(lista));
+		atualizarBotoes();
 	}
 
 	@FXML
@@ -236,6 +240,7 @@ public class GastosController extends Controller<Gastos> implements Initializabl
 		super.save(getGastos());
 
 		atualizarValor();
+		
 	}
 
 	@FXML

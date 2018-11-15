@@ -80,32 +80,17 @@ public class DesejoController extends Controller<Desejo> implements Initializabl
 
     @FXML
     private Button btLimpar;
+    
+	public  ToggleGroup group; 
 
     @FXML
     void handleAtualizar(ActionEvent event) {
 
     	getDesejo().setDescricao(tfDesejo.getText());
 
-    	String output="";
+    	RadioButton radio = (RadioButton)group.getSelectedToggle();
+		getDesejo().setStatus(radio.getText());
 		
-		if (rbAguardando.isSelected()) {
-			output = rbAguardando.getText();
-			getDesejo().setStatus(output);
-			
-			
-		} 
-		
-		if (rbRealizado.isSelected()) {
-			output = rbRealizado.getText();
-			getDesejo().setStatus(output);
-		} 
-		
-		if(rbNaoRealizado.isSelected()) {
-			output = rbNaoRealizado.getText();
-			
-			getDesejo().setStatus(output);
-		}
-
 		super.save(getDesejo());
 
 		handleLimpar(event);
@@ -169,34 +154,8 @@ public class DesejoController extends Controller<Desejo> implements Initializabl
     	getDesejo().setPessoa(super.getPessoa());
     	
     	
-        	
-    	
-    	String output="";
-		
-		if (rbAguardando.isSelected()) {
-			output = rbAguardando.getText();
-			getDesejo().setStatus(output);
-			rbAguardando.setSelected(true);
-			rbAguardando.requestFocus();
-			
-		} 
-		
-		if (rbRealizado.isSelected()) {
-			output = rbRealizado.getText();
-			getDesejo().setStatus(output);
-			rbRealizado.setSelected(true);
-			rbRealizado.requestFocus();
-		} 
-		
-		if(rbNaoRealizado.isSelected()) {
-			output = rbNaoRealizado.getText();
-					
-			getDesejo().setStatus(output);
-		
-			rbNaoRealizado.setSelected(true);
-			rbNaoRealizado.requestFocus();
-		}
-		
+    	RadioButton radio = (RadioButton)group.getSelectedToggle();
+		getDesejo().setStatus(radio.getText());
 		
 
 		tvListDesejos.getItems().add(desejo);
@@ -215,12 +174,36 @@ public class DesejoController extends Controller<Desejo> implements Initializabl
 			if (event.getClickCount() == 2) {
 
 				desejo = tvListDesejos.getSelectionModel().getSelectedItem();
-				
-				
+
 				tfDesejo.setText(getDesejo().getDescricao());
+			
 				
+				group = new ToggleGroup();
+
+				rbAguardando.setToggleGroup(group);
+				rbRealizado.setToggleGroup(group);
+				rbNaoRealizado.setToggleGroup(group);
 				
-						
+				String output = "";
+
+				if (getDesejo().getStatus().equals("Aguardando")) {
+					group.selectToggle(rbAguardando);
+					
+
+					
+				} 
+				
+				else if (getDesejo().getStatus().equals("Realizado")) {
+					group.selectToggle(rbRealizado);
+				} 
+				
+				else if(getDesejo().getStatus().equals("Não realizado")) {
+					group.selectToggle(rbNaoRealizado);
+				}
+				
+			
+
+			
 
 			
 

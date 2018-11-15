@@ -120,6 +120,8 @@ public class LerDiarioController extends Controller<Diario> implements Initializ
 	public void initialize(URL location, ResourceBundle resources) {
 		// setando o focus no text field cpf
 		// CONFIGURANDO AS COLUNAS DAS TABELAS CONFORME OS ATRIBUTOS DA CLASSE CLIENTE
+		super.ajustarPane(apLerDiario);
+		
 		tcIdDiario.setCellValueFactory(new PropertyValueFactory<>("id"));
 		tcTitulo.setCellValueFactory(new PropertyValueFactory<>("titulo"));
 		tcData.setCellValueFactory(new PropertyValueFactory<>("dataCadastro"));

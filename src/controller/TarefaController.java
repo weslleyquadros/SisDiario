@@ -145,6 +145,7 @@ handleListar(event);
 		tarefa = null;
 		// setando o focus no Titulo
 		tfTitulo.requestFocus();
+		atualizarBotoes();
 	}
 
 	@FXML
@@ -236,8 +237,10 @@ handleListar(event);
 
     @Override
 	public void initialize(URL location, ResourceBundle resources) {
-		// TODO Auto-generated method stub
-		// setando o focus no text field cpf
+		
+    	super.ajustarPane(apTarefas);
+    	
+    	
 		tfTitulo.requestFocus();
 
 		tcId.setCellValueFactory(new PropertyValueFactory<>("id"));

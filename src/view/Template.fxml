@@ -5,17 +5,31 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="525.0" prefWidth="787.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TelaInicialController">
    <bottom>
-      <Pane prefHeight="24.0" prefWidth="634.0" style="-fx-background-color: #72CCC9;" BorderPane.alignment="CENTER" />
+      <AnchorPane style="-fx-background-color: #72CCC9;" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER" prefHeight="24.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+               <children>
+                  <Label alignment="CENTER" text="SisDiario- Universidade Estadual do Tocantins - UNITINS   Copyright © 2018" textFill="WHITE">
+                     <font>
+                        <Font name="System Italic" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
    </bottom>
    <left>
       <VBox alignment="TOP_CENTER" prefHeight="442.0" prefWidth="120.0" spacing="20.0" style="-fx-background-color: #22B2B0;" BorderPane.alignment="CENTER">
@@ -34,6 +48,13 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
+               <tooltip>
+                  <Tooltip opacity="0.59" text="Escrever Diário">
+                     <font>
+                        <Font name="System Italic" size="12.0" />
+                     </font>
+                  </Tooltip>
+               </tooltip>
             </Button>
             <Button fx:id="btLerDiario" mnemonicParsing="false" onAction="#handleAbrirLerDiario" prefHeight="62.0" prefWidth="72.0" style="-fx-background-color: none;" textFill="#ffffffeb">
                <font>
@@ -49,6 +70,13 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
+               <tooltip>
+                  <Tooltip opacity="0.54" text="Ler diário">
+                     <font>
+                        <Font name="System Italic" size="12.0" />
+                     </font>
+                  </Tooltip>
+               </tooltip>
             </Button>
             <Button fx:id="btDesejos" mnemonicParsing="false" onAction="#handleAbrirDesejos" prefHeight="62.0" prefWidth="66.0" style="-fx-background-color: none;" textFill="#ffffffeb">
                <font>
@@ -64,6 +92,13 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
+               <tooltip>
+                  <Tooltip opacity="0.54" text="Inserir desejos">
+                     <font>
+                        <Font name="System Italic" size="12.0" />
+                     </font>
+                  </Tooltip>
+               </tooltip>
             </Button>
             <Button fx:id="btTarefas" mnemonicParsing="false" onAction="#handleAbrirTarefas" prefHeight="55.0" prefWidth="62.0" style="-fx-background-color: none;">
                <graphic>
@@ -76,6 +111,12 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
+               <tooltip>
+                  <Tooltip opacity="0.54" text="Adicionar uma Tarefa">
+                     <font>
+                        <Font name="System Italic" size="12.0" />
+                     </font></Tooltip>
+               </tooltip>
             </Button>
             <Button fx:id="btFinanceiro" mnemonicParsing="false" onAction="#handleAbrirFinanceiro" prefHeight="65.0" prefWidth="68.0" style="-fx-background-color: none;">
                <graphic>
@@ -88,6 +129,12 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
+               <tooltip>
+                  <Tooltip opacity="0.59" text="Controle de gastos mensais">
+                     <font>
+                        <Font name="System Italic" size="12.0" />
+                     </font></Tooltip>
+               </tooltip>
             </Button>
          </children>
          <padding>
@@ -96,21 +143,36 @@
       </VBox>
    </left>
    <center>
-      <ScrollPane fx:id="scrollPane" prefHeight="283.0" prefWidth="394.0" BorderPane.alignment="CENTER" />
+      <ScrollPane fx:id="scrollPane" prefHeight="283.0" prefWidth="394.0" style="-fx-background-color: #72CCC9;" BorderPane.alignment="CENTER">
+         <content>
+            <Pane prefHeight="639.0" prefWidth="1294.0" style="-fx-background-color: #72CCC9;" />
+         </content></ScrollPane>
    </center>
    <top>
-      <AnchorPane prefHeight="66.0" prefWidth="787.0" style="-fx-background-color: #22B2B0;" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="54.0" prefWidth="787.0" style="-fx-background-color: #22B2B0;" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="208.0" layoutY="13.0" text="Bem-vindo ao Sistema de Diário pessoal" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+            <Label layoutY="5.0" text="Bem-vindo ao Sistema de Diário pessoal" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                <font>
                   <Font name="Futura Bk BT Book Italic" size="31.0" />
                </font>
             </Label>
-            <Label fx:id="lbUsuario" layoutX="712.0" layoutY="33.0" text="Usuario" textFill="WHITE">
-               <font>
-                  <Font name="System Bold Italic" size="12.0" />
-               </font>
-            </Label>
+            <HBox alignment="CENTER_RIGHT" layoutX="650.0" layoutY="6.0" prefHeight="44.0" prefWidth="212.0" AnchorPane.rightAnchor="0.0">
+               <children>
+                  <ImageView fitHeight="34.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/user.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="lbUsuario" text="Usuario" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold Italic" size="12.0" />
+                     </font>
+                     <tooltip>
+                        <Tooltip text="Usuário logado" />
+                     </tooltip>
+                  </Label>
+               </children>
+            </HBox>
          </children>
       </AnchorPane>
    </top>

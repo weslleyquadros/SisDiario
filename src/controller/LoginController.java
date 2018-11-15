@@ -5,6 +5,7 @@ import java.util.List;
 
 import factory.JPAFactory;
 import factory.LoginFactory;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,6 +17,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Stop;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.Desejo;
@@ -37,6 +39,8 @@ public class LoginController extends Controller<Pessoa> {
     private Button btCadastrar;
 
     @FXML
+    private Button btFechar;
+    @FXML
     private TextField tfLogin;
 
     @FXML
@@ -44,6 +48,8 @@ public class LoginController extends Controller<Pessoa> {
 
     @FXML
     private Label lbMensagem;
+    
+    
     
     @FXML
     void handleCadastrar(ActionEvent event) throws IOException {
@@ -60,16 +66,14 @@ public class LoginController extends Controller<Pessoa> {
 	   
 
     }
-    
+   
+ 
     @FXML
-    void handleFechar(MouseEvent event)  {
-	    	
-    	if (event.getButton().equals(MouseButton.PRIMARY)) {
-			// VERIFICANDO SE A QUANTIDADE DE CLIQUES NO BOTÃƒO PRIMÃ�RIO Ã‰ IGUAL A 2
-			if (event.getClickCount() == 1) {
-				System.exit(0); 
-				}
-			}
+    void handleFechar(ActionEvent event)  {
+    	
+    
+    	Platform.exit();
+        System.exit(0);
 				
 
 	 
@@ -97,7 +101,8 @@ public class LoginController extends Controller<Pessoa> {
     	
 		UsuarioRepository repository = new UsuarioRepository(JPAFactory.getEntityManager());
 		List<Pessoa> lista = repository.getPessoaLogin(tfLogin.getText(), pfSenha.getText());
-
+	
+		
 		for (Pessoa listaUsuario : lista ) {
 			
 			listaUsuario.getId();
@@ -106,6 +111,7 @@ public class LoginController extends Controller<Pessoa> {
 			
 		}
 		
+	
 		if(!lista.isEmpty()) {
 
 	    	Button button = (Button) event.getSource();
@@ -125,6 +131,8 @@ public class LoginController extends Controller<Pessoa> {
     	
     	else
     		lbMensagem.setText("Usuário ou senha incorretos.Tente novamente!");
+		
+	
 
     }
 
