@@ -200,6 +200,8 @@ handleListar(event);
 		getTarefa().setTituloTarefa(tfTitulo.getText());
 		getTarefa().setDataTarefa(dpDatatarefa.getValue());
 		getTarefa().setDescricaoTarefa(tfDescricao.getText());
+		
+		getTarefa().setPessoa(super.getPessoa());
 
 		
 		RadioButton radio = (RadioButton)group.getSelectedToggle();
@@ -207,32 +209,6 @@ handleListar(event);
 		
 		
 		
-		/*String output = "";
-		
-	
-		if (rbAguardando.isSelected()) {
-			output = rbAguardando.getText();
-			getTarefa().setStatusTarefa(output);
-			rbAguardando.setSelected(true);
-			rbAguardando.requestFocus();
-			
-		} 
-		
-		if (rbRealizada.isSelected()) {
-			output = rbRealizada.getText();
-			getTarefa().setStatusTarefa(output);
-			rbRealizada.setSelected(true);
-			rbRealizada.requestFocus();
-		} 
-		
-		if(rbNaoRealizado.isSelected()) {
-			output = rbNaoRealizado.getText();
-					
-			getTarefa().setStatusTarefa(output);
-		
-			rbNaoRealizado.setSelected(true);
-			rbNaoRealizado.requestFocus();
-		}*/
 		
 
 		tvTarefas.getItems().add(tarefa);

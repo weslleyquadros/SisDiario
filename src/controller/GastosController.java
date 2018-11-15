@@ -89,7 +89,7 @@ public class GastosController extends Controller<Gastos> implements Initializabl
 
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
-
+		super.ajustarPane(apGastos);
 		tcDataSaida.setCellValueFactory(new PropertyValueFactory<>("dataSaida"));
 		tcDescricao.setCellValueFactory(new PropertyValueFactory<>("descricao"));
 		tcMes.setCellValueFactory(new PropertyValueFactory<>("meses"));
@@ -229,6 +229,8 @@ public class GastosController extends Controller<Gastos> implements Initializabl
 		getGastos().setDescricao(tfDescricao.getText());
 
 		getGastos().setDataSaida(dpDataSaida.getValue());
+		
+		getGastos().setPessoa(super.getPessoa());
 
 		tvSaidas.getItems().add(gastos);
 		super.save(getGastos());

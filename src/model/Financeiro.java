@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -16,10 +18,18 @@ public class Financeiro extends DefaultEntity<Financeiro>{
 
 	private String saldoAtual;
 		
-	/*@ManyToOne
-	@JoinColumn(name="idCidadeNatal")
-	private Financeiro cidadNatal;*/
+	@ManyToOne
+	@JoinColumn(name="idPessoa")
+	private Pessoa pessoa;
 	
+	public Pessoa getPessoa() {
+		return pessoa;
+	}
+
+	public void setPessoa(Pessoa pessoa) {
+		this.pessoa = pessoa;
+	}
+
 	private Meses meses;
 
 	

@@ -85,6 +85,7 @@ public class DiarioController extends Controller<Diario> implements Initializabl
 		getDiario().setAnotacoes(taAnotacoes.getText());
 
 		getDiario().setTipo(dpTipo.getValue());
+		getDiario().setPessoa(super.getPessoa());
 
 		super.save(getDiario());
 

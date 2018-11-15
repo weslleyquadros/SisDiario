@@ -18,10 +18,18 @@ public class Diario extends DefaultEntity<Diario> {
 	@Column(columnDefinition = "Date")
 	private LocalDate dataCadastro;
 
-	/*@ManyToOne
+	@ManyToOne
 	@JoinColumn(name="idPessoa")
-	private Pessoa pessoa;*/
+	private Pessoa pessoa;
 	
+	public Pessoa getPessoa() {
+		return pessoa;
+	}
+
+	public void setPessoa(Pessoa pessoa) {
+		this.pessoa = pessoa;
+	}
+
 	public String getTipo() {
 		return tipo;
 	}

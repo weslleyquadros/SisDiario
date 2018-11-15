@@ -19,7 +19,9 @@ public class DiarioRepository extends Repository<Diario> {
 
 		Query query = getEntityManager()
 				.createQuery("SELECT d FROM Diario d WHERE lower(d.titulo) like lower(:titulo) Order by d.titulo ");
+				//.createQuery("SELECT d.anotacoes, d.tipo, d.datacadastro, d.titulo FROM Diario d, Pessoa WHERE d.titulo=:titulo and d.idpessoa=Pessoa.id and d.idpessoa=:idpessoa");
 		query.setParameter("titulo", "%" + titulo + "%");
+		//query.setParameter("idpessoa", "%" + idpessoa + "%");
 
 		List<Diario> lista = query.getResultList();
 

@@ -6,6 +6,8 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -20,17 +22,25 @@ public class Gastos extends DefaultEntity<Gastos> {
 	private String saldoAtual;
 	private String descricao;
 
-	/*
-	 * @ManyToOne
-	 * 
-	 * @JoinColumn(name="idCidadeNatal") private Financeiro cidadNatal;
-	 */
+	@ManyToOne
+	@JoinColumn(name="idPessoa")
+	private Pessoa pessoa;
 
+	
 	private Meses meses;
 
 
 	@Column(columnDefinition = "Date")
 	private LocalDate dataSaida;
+
+	
+	public Pessoa getPessoa() {
+		return pessoa;
+	}
+
+	public void setPessoa(Pessoa pessoa) {
+		this.pessoa = pessoa;
+	}
 
 	public String getDescricao() {
 		return descricao;

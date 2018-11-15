@@ -169,12 +169,6 @@ public class DesejoController extends Controller<Desejo> implements Initializabl
     	getDesejo().setPessoa(super.getPessoa());
     	
     	
-    	LoginController pegarId = LoginFactory.getInstance();
-    	
-    	
-    	setPessoa(pegarId.getPessoa());
-    	
-    	System.out.println("NOME:" + pessoa);
         	
     	
     	String output="";

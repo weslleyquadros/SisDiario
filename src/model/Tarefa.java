@@ -13,28 +13,21 @@ import javax.persistence.OneToMany;
 @Entity
 public class Tarefa extends DefaultEntity<Tarefa> {
 
-	
 	private static final long serialVersionUID = 6006904402824207787L;
-	
+
 	private String tituloTarefa;
 	private String descricaoTarefa;
 	private String statusTarefa;
-	
 
+	@ManyToOne
+	@JoinColumn(name = "idPessoa")
+	private Pessoa pessoa;
 
-	//@OneToMany(cascade=CascadeType.ALL, mappedBy="cliente")
-	//private List<Telefone> listaTelefone;
-	
-	
-
-	@Column(columnDefinition="Date")
+	@Column(columnDefinition = "Date")
 	private LocalDate dataTarefa;
-	
-/*	@OneToMany(cascade=CascadeType.ALL, mappedBy="pessoa")
-	private List<Telefone> listaTelefone;*/
-	
+
 	public Tarefa() {
-		
+
 	}
 
 	public Tarefa(String tituloTarefa, String descricaoTarefa, LocalDate dataTarefa, String statusTarefa) {
@@ -43,7 +36,15 @@ public class Tarefa extends DefaultEntity<Tarefa> {
 		this.descricaoTarefa = descricaoTarefa;
 		this.dataTarefa = dataTarefa;
 		this.statusTarefa = statusTarefa;
-		
+
+	}
+
+	public Pessoa getPessoa() {
+		return pessoa;
+	}
+
+	public void setPessoa(Pessoa pessoa) {
+		this.pessoa = pessoa;
 	}
 
 	public String getTituloTarefa() {
@@ -69,6 +70,7 @@ public class Tarefa extends DefaultEntity<Tarefa> {
 	public void setDataTarefa(LocalDate dataTarefa) {
 		this.dataTarefa = dataTarefa;
 	}
+
 	public String getStatusTarefa() {
 		return statusTarefa;
 	}
@@ -77,5 +79,4 @@ public class Tarefa extends DefaultEntity<Tarefa> {
 		this.statusTarefa = statusTarefa;
 	}
 
-	
 }
