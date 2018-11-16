@@ -15,6 +15,7 @@
     <fx:define>
         <Font fx:id="FONT" size="20"/>
     </fx:define>
+
     
     <!--Região onde ficam os números digitados e os resultados-->
     <StackPane alignment="CENTER">

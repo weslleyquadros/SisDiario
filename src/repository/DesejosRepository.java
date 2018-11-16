@@ -17,12 +17,15 @@ public class DesejosRepository extends Repository<Desejo> {
 	}
 	
 	
-	public List<Desejo> getDesejo(String descricao) {
+	public List<Desejo> getDesejo(Pessoa pessoa) {
 		
+		Query query = getEntityManager().createQuery("SELECT d FROM Desejo d WHERE d.pessoa=:pessoa");
+		query.setParameter("pessoa", pessoa);
+		/*
 		Query query = 
 				getEntityManager().
 					createQuery("SELECT d FROM Desejo d WHERE lower(d.descricao) like lower(:descricao) ");
-		query.setParameter("descricao", "%" + descricao + "%");
+		query.setParameter("descricao", "%" + descricao + "%");*/
 		
 		List<Desejo> lista = query.getResultList();
 	

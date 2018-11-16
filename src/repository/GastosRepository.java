@@ -7,7 +7,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
 import model.Gastos;
-import model.Tarefa;
+import model.Pessoa;
+
 
 public class GastosRepository extends Repository<Gastos> {
 	
@@ -17,12 +18,15 @@ public class GastosRepository extends Repository<Gastos> {
 	}
 	
 	
-	public List<Gastos> getGastos(String descricao) {
+	public List<Gastos> getGastos(Pessoa pessoa) {
 		
-		Query query = 
+		Query query = getEntityManager().createQuery("SELECT g FROM Gastos g WHERE g.pessoa=:pessoa");
+		query.setParameter("pessoa", pessoa);
+		
+		/*Query query = 
 				getEntityManager().
 					createQuery("SELECT g FROM Gastos g WHERE lower(g.descricao) like lower(:descricao) ");
-		query.setParameter("descricao", "%" + descricao + "%");
+		query.setParameter("descricao", "%" + descricao + "%");*/
 		
 		List<Gastos> lista = query.getResultList();
 	

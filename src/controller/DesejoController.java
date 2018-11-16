@@ -31,8 +31,10 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import model.DefaultEntity;
 import model.Desejo;
+import model.Diario;
 import model.Pessoa;
 import repository.DesejosRepository;
+import repository.DiarioRepository;
 
 
 public class DesejoController extends Controller<Desejo> implements Initializable {
@@ -218,8 +220,19 @@ public class DesejoController extends Controller<Desejo> implements Initializabl
     
     @FXML
 	void handleListar(ActionEvent event) {
+    	Controller pegarUsuario = new Controller();
+		Pessoa usuarioLogado = pegarUsuario.getPessoa();
+		
 		DesejosRepository repository = new DesejosRepository(JPAFactory.getEntityManager());
-		List<Desejo> lista = repository.getDesejo(tfDesejo.getText());
+		List<Desejo> lista = repository.getDesejo(usuarioLogado);
+		
+		String anotacoes = null;
+		for(Desejo listaRetorno : lista) {
+			anotacoes = listaRetorno.getDescricao();
+			System.out.println(anotacoes);
+		}
+    	
+    	
 
 		if (lista.isEmpty()) {
 			Alert alerta = new Alert(AlertType.INFORMATION);

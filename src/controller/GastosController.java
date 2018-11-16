@@ -10,10 +10,12 @@ import java.util.ResourceBundle;
 
 import factory.JPAFactory;
 import javafx.fxml.Initializable;
-
+import model.Desejo;
 import model.Gastos;
 import model.Meses;
+import model.Pessoa;
 import model.Tarefa;
+import repository.DesejosRepository;
 import repository.GastosRepository;
 import repository.TarefaRepository;
 import javafx.collections.FXCollections;
@@ -43,8 +45,8 @@ import javafx.stage.Stage;
 public class GastosController extends Controller<Gastos> implements Initializable {
 
 	@FXML
-    private AnchorPane apGastos;
-	
+	private AnchorPane apGastos;
+
 	private Gastos gastos;
 	@FXML
 	private TextField tfSaldoAtual;
@@ -134,19 +136,16 @@ public class GastosController extends Controller<Gastos> implements Initializabl
 	}
 
 	@FXML
-	void handleAbrir(MouseEvent event) throws IOException {
+	void handleAbrir(ActionEvent event) throws IOException {
 		// VERIFICANDO SE Ã‰ O BOTÃƒO PRINCIPAL QUE FOI CLIADO
-		if (event.getButton().equals(MouseButton.PRIMARY)) {
-			// VERIFICANDO SE A QUANTIDADE DE CLIQUES NO BOTÃƒO PRIMÃ�RIO Ã‰ IGUAL A 2
-			if (event.getClickCount() == 1) {
+		
 
 				Parent root = FXMLLoader.load(getClass().getResource("/calculadora/calculadora.fxml"));
 				Stage stage = new Stage();
 				stage.setScene(new Scene(root));
 				stage.show();
 
-			}
-		}
+	
 	}
 
 	/*
@@ -167,10 +166,10 @@ public class GastosController extends Controller<Gastos> implements Initializabl
 
 		save(getGastos());
 		atualizarValor();
-		
+
 		handleLimpar(event);
 		handleListar(event);
-	
+
 	}
 
 	@FXML
@@ -210,8 +209,18 @@ public class GastosController extends Controller<Gastos> implements Initializabl
 
 	@FXML
 	void handleListar(ActionEvent event) {
+
+		Controller pegarUsuario = new Controller();
+		Pessoa usuarioLogado = pegarUsuario.getPessoa();
+		
 		GastosRepository repository = new GastosRepository(JPAFactory.getEntityManager());
-		List<Gastos> lista = repository.getGastos(tfDescricao.getText());
+		List<Gastos> lista = repository.getGastos(usuarioLogado);
+
+		String anotacoes = null;
+		for (Gastos listaRetorno : lista) {
+			anotacoes = listaRetorno.getDescricao();
+			System.out.println(anotacoes);
+		}
 
 		if (lista.isEmpty()) {
 			Alert alerta = new Alert(AlertType.INFORMATION);
@@ -233,14 +242,14 @@ public class GastosController extends Controller<Gastos> implements Initializabl
 		getGastos().setDescricao(tfDescricao.getText());
 
 		getGastos().setDataSaida(dpDataSaida.getValue());
-		
+
 		getGastos().setPessoa(super.getPessoa());
 
 		tvSaidas.getItems().add(gastos);
 		super.save(getGastos());
 
 		atualizarValor();
-		
+
 	}
 
 	@FXML
@@ -257,9 +266,8 @@ public class GastosController extends Controller<Gastos> implements Initializabl
 				tfDescricao.setText(getGastos().getDescricao());
 				tfSaldoAtual.setText(getGastos().getSaldoAtual());
 
-			
 				cbMesRef.requestFocus();
-				
+
 				atualizarValor();
 				atualizarBotoes();
 			}

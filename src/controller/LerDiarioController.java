@@ -30,7 +30,7 @@ import javafx.scene.layout.AnchorPane;
 import model.Anotacoes;
 
 import model.Diario;
-
+import model.Pessoa;
 import repository.DiarioRepository;
 import repository.LerDiarioRepository;
 
@@ -102,8 +102,18 @@ public class LerDiarioController extends Controller<Diario> implements Initializ
 
 	@FXML
 	void handlePesquisar(ActionEvent event) {
+		Controller pegarUsuario = new Controller();
+		Pessoa usuarioLogado = pegarUsuario.getPessoa();
+		
 		DiarioRepository repository = new DiarioRepository(JPAFactory.getEntityManager());
-		List<Diario> lista = repository.getDiario(tfTituloPesquisar.getText());
+		List<Diario> lista = repository.getDiario(usuarioLogado);
+		String anotacoes = null;
+		for(Diario listaRetorno : lista) {
+			anotacoes = listaRetorno.getAnotacoes();
+			System.out.println(anotacoes);
+		}
+
+		
 
 		if (lista.isEmpty()) {
 			Alert alerta = new Alert(AlertType.INFORMATION);

@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
+import model.Pessoa;
 import model.Tarefa;
 
 public class TarefaRepository extends Repository<Tarefa> {
@@ -16,12 +17,16 @@ public class TarefaRepository extends Repository<Tarefa> {
 	}
 	
 	
-	public List<Tarefa> getTarefa(String titulotarefa) {
+	public List<Tarefa> getTarefa(Pessoa pessoa) {
 		
-		Query query = 
+		Query query = getEntityManager().createQuery("SELECT t FROM Tarefa t WHERE t.pessoa=:pessoa");
+		query.setParameter("pessoa", pessoa);
+		
+		
+		/*Query query = 
 				getEntityManager().
 					createQuery("SELECT t FROM Tarefa t WHERE lower(t.tituloTarefa) like lower(:tituloTarefa) ");
-		query.setParameter("tituloTarefa", "%" + titulotarefa + "%");
+		query.setParameter("tituloTarefa", "%" + titulotarefa + "%");*/
 		
 		List<Tarefa> lista = query.getResultList();
 	

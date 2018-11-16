@@ -26,8 +26,11 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import model.Desejo;
+import model.Gastos;
+import model.Pessoa;
 import model.Tarefa;
 import repository.DesejosRepository;
+import repository.GastosRepository;
 import repository.TarefaRepository;
 import model.Tarefa;
 
@@ -221,9 +224,21 @@ handleListar(event);
 
 	@FXML
 	void handleListar(ActionEvent event) {
+		
+		Controller pegarUsuario = new Controller();
+		Pessoa usuarioLogado = pegarUsuario.getPessoa();
+		
 		TarefaRepository repository = new TarefaRepository(JPAFactory.getEntityManager());
-		List<Tarefa> lista = repository.getTarefa(tfTitulo.getText());
+		List<Tarefa> lista = repository.getTarefa(usuarioLogado);
 
+
+		String anotacoes = null;
+		for (Tarefa listaRetorno : lista) {
+			anotacoes = listaRetorno.getTituloTarefa();
+			System.out.println(anotacoes);
+		}
+		
+		
 		if (lista.isEmpty()) {
 			Alert alerta = new Alert(AlertType.INFORMATION);
 			alerta.setTitle("Informação:");
