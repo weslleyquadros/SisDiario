@@ -20,7 +20,7 @@
                   <Font name="System Bold" size="26.0" />
                </font>
             </Label>
-            <TextField fx:id="tfLogin" alignment="CENTER" layoutX="184.0" layoutY="175.0" prefHeight="25.0" prefWidth="232.0" promptText="Login" />
+            <TextField fx:id="tfLogin" alignment="CENTER" layoutX="184.0" layoutY="175.0" prefHeight="25.0" prefWidth="232.0" promptText="CPF" />
             <PasswordField fx:id="pfSenha" alignment="CENTER" layoutX="184.0" layoutY="227.0" prefHeight="25.0" prefWidth="232.0" promptText="Senha" />
             <Button fx:id="btEsqueceuSenha" layoutX="232.0" layoutY="323.0" mnemonicParsing="false" onAction="#handleEsqueceuSenha" prefHeight="25.0" prefWidth="137.0" style="-fx-background-color: #F68657;" text="Esqueceu a senha?" textFill="#fffdfd" />
             <Button fx:id="btLogar" layoutX="184.0" layoutY="271.0" mnemonicParsing="false" onAction="#handleLogar" prefHeight="25.0" prefWidth="76.0" style="-fx-background-color: #30A9DE;" text="Logar" textFill="#f8f6f6" />

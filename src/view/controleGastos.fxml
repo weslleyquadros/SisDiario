@@ -36,7 +36,7 @@
       </TableView>
       <HBox alignment="CENTER" layoutX="237.0" layoutY="17.0" prefHeight="58.0" prefWidth="336.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <Label text="Controle Financeiro" textFill="WHITE">
+            <Label text="Controle de Gastos" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="27.0" />
                </font>
