@@ -1,14 +1,18 @@
 package controller;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.List;
+import java.util.ResourceBundle;
 
+import application.Util;
 import factory.JPAFactory;
 import factory.LoginFactory;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -26,7 +30,7 @@ import model.Pessoa;
 import repository.DesejosRepository;
 import repository.UsuarioRepository;
 
-public class LoginController extends Controller<Pessoa> {
+public class LoginController extends Controller<Pessoa> implements Initializable {
 	private static Pessoa pessoa;
 	
 	@FXML
@@ -100,7 +104,7 @@ public class LoginController extends Controller<Pessoa> {
     	pfSenha.getText();
     	
 		UsuarioRepository repository = new UsuarioRepository(JPAFactory.getEntityManager());
-		List<Pessoa> lista = repository.getPessoaLogin(tfLogin.getText(), pfSenha.getText());
+		List<Pessoa> lista = repository.getPessoaLogin(tfLogin.getText(), Util.encrypt(pfSenha.getText()));
 	
 		
 		for (Pessoa listaUsuario : lista ) {
@@ -125,7 +129,8 @@ public class LoginController extends Controller<Pessoa> {
 			
 		}
 		
-//    	if(tfLogin.getText().equals("weslley") && pfSenha.getText().equals("1234")){
+		//login estatico    	
+		//if(tfLogin.getText().equals("weslley") && pfSenha.getText().equals("1234")){
 
     		
     	
@@ -136,7 +141,7 @@ public class LoginController extends Controller<Pessoa> {
 
     }
 
-	public static Pessoa getPessoa() {
+	public Pessoa getPessoa() {
 		return pessoa;
 	}
 
@@ -149,5 +154,19 @@ public class LoginController extends Controller<Pessoa> {
 	}
 	public void setParent(Parent root) {
 				
+	}
+
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public boolean validate() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 }

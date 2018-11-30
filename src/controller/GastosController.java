@@ -296,4 +296,10 @@ public class GastosController extends Controller<Gastos> implements Initializabl
 		this.gastos = gastos;
 	}
 
+	@Override
+	public boolean validate() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }

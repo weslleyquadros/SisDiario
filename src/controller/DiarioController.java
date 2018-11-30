@@ -120,5 +120,11 @@ public class DiarioController extends Controller<Diario> implements Initializabl
 	public void setDiario(Diario diario) {
 		this.diario = diario;
 	}
+	
+	@Override
+	public boolean validate() {
+		// TODO Auto-generated method stub
+		return true;
+	}
 
 }

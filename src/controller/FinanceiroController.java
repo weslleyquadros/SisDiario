@@ -174,5 +174,11 @@ public class FinanceiroController extends Controller<Financeiro> implements Init
 	public void setFinanceiro(Financeiro financeiro) {
 		this.financeiro = financeiro;
 	}
+
+	@Override
+	public boolean validate() {
+		// TODO Auto-generated method stub
+		return false;
+	}
 	
 }

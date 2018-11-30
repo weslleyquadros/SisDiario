@@ -186,6 +186,13 @@ public class TelaInicialController extends Controller implements Initializable {
 		  }
 
 
+		@Override
+		public boolean validate() {
+			// TODO Auto-generated method stub
+			return false;
+		}
+
+
 	
 		
 		

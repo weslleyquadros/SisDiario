@@ -9,9 +9,14 @@ import model.DefaultEntity;
 import model.Pessoa;
 import repository.Repository;
 
-public class Controller<T extends DefaultEntity<? super T>> {
-	private static Pessoa pessoa;
+public abstract class Controller<T extends DefaultEntity<? super T>> {
+	private static Pessoa pessoa = null;
+	
+	public abstract boolean validate();
 	public T save(T entity) {
+		
+		if (!validate())
+			return null;
 		Repository<T> repository = 
 				new Repository<T>(JPAFactory.getEntityManager());
 		
@@ -42,11 +47,13 @@ public class Controller<T extends DefaultEntity<? super T>> {
 		pane.setPrefWidth(width);
 		}
 
-	public static Pessoa getPessoa() {
+	public Pessoa getPessoa() {
 		return pessoa;
 	}
 
 	public static void setPessoa(Pessoa pessoa) {
 		Controller.pessoa = pessoa;
 	}
+
+	
 }

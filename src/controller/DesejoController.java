@@ -37,7 +37,7 @@ import repository.DesejosRepository;
 import repository.DiarioRepository;
 
 
-public class DesejoController extends Controller<Desejo> implements Initializable {
+public abstract abstract class DesejoController extends Controller<Desejo> implements Initializable {
 
 	private Desejo desejo;
 	private static Pessoa pessoa;
@@ -289,12 +289,18 @@ public class DesejoController extends Controller<Desejo> implements Initializabl
 		this.desejo = desejo;
 	}
 
-	public static Pessoa getPessoa() {
+	public Pessoa getPessoa() {
 		return pessoa;
 	}
 
 	public static void setPessoa(Pessoa pessoa) {
 		DesejoController.pessoa = pessoa;
+	}
+
+	@Override
+	public boolean validate() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 	

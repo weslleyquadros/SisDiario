@@ -4,6 +4,9 @@ import javafx.event.ActionEvent;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import application.Util;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -95,11 +98,15 @@ public class PessoaController extends Controller<Pessoa> implements Initializabl
 		getPessoa().setCpf(tfCpf.getText());
 		getPessoa().setDataAniversaio(dpDataNascimento.getValue());
 		getPessoa().setEmail(tfEmail.getText());
-		getPessoa().setSenha(tfSenha.getText());
+		getPessoa().setSenha(Util.encrypt(tfSenha.getText()));
 		getPessoa().setSexo(cbSexo.getValue());
-		super.save(getPessoa());
-
-		handleCancelar(event);
+		
+//		super.save(getPessoa());
+//		handleCancelar(event);
+		
+		if (super.save(getPessoa()) != null) {
+			handleCancelar(event);	
+		}
 	}
 
 	@FXML
@@ -191,8 +198,47 @@ public class PessoaController extends Controller<Pessoa> implements Initializabl
 		btSalvar.setDisable(getPessoa().getId() != null);
 
 	}
+	
+	@Override
+	public boolean validate() {
+		
+		//validação nome 
+		if (getPessoa().getNome() == null || getPessoa().getNome().trim().equals("")) {
+			Util.errorAlert("O nome da cidade deve ser informado.").show();
+    		tfNome.requestFocus();
+    		tfNome.selectAll();
+    		return false;
+		}
+		
+		//validação cpf 
+				if (getPessoa().getCpf() == null || getPessoa().getCpf().trim().equals("")) {
+					Util.errorAlert("O campo CPF deve ser informado.").show();
+		    		tfCpf.requestFocus();
+		    		tfCpf.selectAll();
+		    		return false;
+				}
+				
+				//validação e-mail 
+				if (getPessoa().getEmail() == null || getPessoa().getEmail().trim().equals("")) {
+					Util.errorAlert("O campo e-mail deve ser informado.").show();
+		    		tfEmail.requestFocus();
+		    		tfEmail.selectAll();
+		    		return false;
+				}
+				
+				//validação Data de Nascimento 
+				if (getPessoa().getDataAniversaio() == null) {
+					Util.errorAlert("A daa de nascimento deve ser Informada").show();
+		    		notify();
+		    		
+		    		return false;
+				}
+		
+		return true;
+	}
+	
 
-	public static Pessoa getPessoa() {
+	public Pessoa getPessoa() {
 		if (pessoa == null)
 			pessoa = new Pessoa();
 		return pessoa;
@@ -202,4 +248,6 @@ public class PessoaController extends Controller<Pessoa> implements Initializabl
 		pessoa = pessoa;
 	}
 
+
+	
 }

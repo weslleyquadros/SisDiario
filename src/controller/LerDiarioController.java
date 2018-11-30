@@ -150,4 +150,10 @@ public class LerDiarioController extends Controller<Diario> implements Initializ
 		this.diario = diario;
 	}
 
+	@Override
+	public boolean validate() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }
