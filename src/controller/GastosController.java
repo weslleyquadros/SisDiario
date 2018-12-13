@@ -210,8 +210,8 @@ public class GastosController extends Controller<Gastos> implements Initializabl
 	@FXML
 	void handleListar(ActionEvent event) {
 
-		Controller pegarUsuario = new Controller();
-		Pessoa usuarioLogado = pegarUsuario.getPessoa();
+		//Controller pegarUsuario = new Controller();
+		Pessoa usuarioLogado = Controller.getPessoa();
 		
 		GastosRepository repository = new GastosRepository(JPAFactory.getEntityManager());
 		List<Gastos> lista = repository.getGastos(usuarioLogado);
@@ -299,7 +299,6 @@ public class GastosController extends Controller<Gastos> implements Initializabl
 	@Override
 	public boolean validate() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
-
 }

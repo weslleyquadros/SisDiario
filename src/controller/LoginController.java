@@ -1,9 +1,7 @@
 package controller;
 
 import java.io.IOException;
-import java.net.URL;
 import java.util.List;
-import java.util.ResourceBundle;
 
 import application.Util;
 import factory.JPAFactory;
@@ -12,7 +10,6 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -30,7 +27,7 @@ import model.Pessoa;
 import repository.DesejosRepository;
 import repository.UsuarioRepository;
 
-public class LoginController extends Controller<Pessoa> implements Initializable {
+public class LoginController extends Controller<Pessoa> {
 	private static Pessoa pessoa;
 	
 	@FXML
@@ -110,7 +107,7 @@ public class LoginController extends Controller<Pessoa> implements Initializable
 		for (Pessoa listaUsuario : lista ) {
 			
 			listaUsuario.getId();
-			Controller<Pessoa> controller = new Controller<Pessoa>();
+			//Controller<Pessoa> controller = new Controller<Pessoa>();
 			Controller.setPessoa(listaUsuario);
 			
 		}
@@ -129,8 +126,7 @@ public class LoginController extends Controller<Pessoa> implements Initializable
 			
 		}
 		
-		//login estatico    	
-		//if(tfLogin.getText().equals("weslley") && pfSenha.getText().equals("1234")){
+//    	if(tfLogin.getText().equals("weslley") && pfSenha.getText().equals("1234")){
 
     		
     	
@@ -141,7 +137,7 @@ public class LoginController extends Controller<Pessoa> implements Initializable
 
     }
 
-	public Pessoa getPessoa() {
+	public static Pessoa getPessoa() {
 		return pessoa;
 	}
 
@@ -158,15 +154,8 @@ public class LoginController extends Controller<Pessoa> implements Initializable
 
 
 	@Override
-	public void initialize(URL location, ResourceBundle resources) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	@Override
 	public boolean validate() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 }

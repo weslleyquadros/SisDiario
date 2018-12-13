@@ -37,10 +37,10 @@ import repository.DesejosRepository;
 import repository.DiarioRepository;
 
 
-public abstract abstract class DesejoController extends Controller<Desejo> implements Initializable {
+public class DesejoController extends Controller<Desejo> implements Initializable {
 
 	private Desejo desejo;
-	private static Pessoa pessoa;
+	//private static Pessoa pessoa;
 	
 	@FXML
     private AnchorPane apDesejo;
@@ -59,8 +59,8 @@ public abstract abstract class DesejoController extends Controller<Desejo> imple
     @FXML
     private RadioButton rbNaoRealizado;
 
-    @FXML
-    private ToggleGroup status;
+//    @FXML
+//    private ToggleGroup status;
 
     @FXML
     private TableView<Desejo> tvListDesejos;
@@ -83,6 +83,7 @@ public abstract abstract class DesejoController extends Controller<Desejo> imple
     @FXML
     private Button btLimpar;
     
+    
 	public  ToggleGroup group; 
 
     @FXML
@@ -93,7 +94,7 @@ public abstract abstract class DesejoController extends Controller<Desejo> imple
     	RadioButton radio = (RadioButton)group.getSelectedToggle();
 		getDesejo().setStatus(radio.getText());
 		
-		super.save(getDesejo());
+		save(getDesejo());
 
 		handleLimpar(event);
 		handleListar(event);
@@ -149,15 +150,19 @@ public abstract abstract class DesejoController extends Controller<Desejo> imple
     }
 
     @FXML
-    void handleSalvar(ActionEvent event) throws IOException {
+    void handleIncluir(ActionEvent event){
+    
     	getDesejo().setDescricao(tfDesejo.getText());
-    	
-    	
+	
+		
     	getDesejo().setPessoa(super.getPessoa());
-    	
-    	
-    	RadioButton radio = (RadioButton)group.getSelectedToggle();
+
+		
+		RadioButton radio = (RadioButton)group.getSelectedToggle();
 		getDesejo().setStatus(radio.getText());
+		
+		
+		
 		
 
 		tvListDesejos.getItems().add(desejo);
@@ -165,6 +170,7 @@ public abstract abstract class DesejoController extends Controller<Desejo> imple
 		super.save(getDesejo());
 
 		handleLimpar(event);
+		
     }
     
     @FXML
@@ -220,8 +226,8 @@ public abstract abstract class DesejoController extends Controller<Desejo> imple
     
     @FXML
 	void handleListar(ActionEvent event) {
-    	Controller pegarUsuario = new Controller();
-		Pessoa usuarioLogado = pegarUsuario.getPessoa();
+    //	Controller pegarUsuario = new Controller();
+		Pessoa usuarioLogado = Controller.getPessoa();
 		
 		DesejosRepository repository = new DesejosRepository(JPAFactory.getEntityManager());
 		List<Desejo> lista = repository.getDesejo(usuarioLogado);
@@ -289,19 +295,19 @@ public abstract abstract class DesejoController extends Controller<Desejo> imple
 		this.desejo = desejo;
 	}
 
-	public Pessoa getPessoa() {
-		return pessoa;
-	}
-
-	public static void setPessoa(Pessoa pessoa) {
-		DesejoController.pessoa = pessoa;
-	}
-
 	@Override
 	public boolean validate() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
+
+//	public static Pessoa getPessoa() {
+//		return pessoa;
+//	}
+//
+//	public static void setPessoa(Pessoa pessoa) {
+//		DesejoController.pessoa = pessoa;
+//	}
 
 	
 	

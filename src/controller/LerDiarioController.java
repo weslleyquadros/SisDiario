@@ -102,8 +102,8 @@ public class LerDiarioController extends Controller<Diario> implements Initializ
 
 	@FXML
 	void handlePesquisar(ActionEvent event) {
-		Controller pegarUsuario = new Controller();
-		Pessoa usuarioLogado = pegarUsuario.getPessoa();
+		//Controller pegarUsuario = new Controller();
+		Pessoa usuarioLogado = Controller.getPessoa();
 		
 		DiarioRepository repository = new DiarioRepository(JPAFactory.getEntityManager());
 		List<Diario> lista = repository.getDiario(usuarioLogado);
@@ -153,7 +153,6 @@ public class LerDiarioController extends Controller<Diario> implements Initializ
 	@Override
 	public boolean validate() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
-
 }

@@ -31,7 +31,7 @@ public class TelaInicialController extends Controller implements Initializable {
 	public static Parent DesejosView;
 	public static Parent TarefasView;
 	public static Parent ContrGastosView;
-	//private Pessoa pessoa;
+	// private Pessoa pessoa;
 
 	@FXML
 	private ScrollPane scrollPane;
@@ -44,29 +44,28 @@ public class TelaInicialController extends Controller implements Initializable {
 
 		// Abrindo tela de login
 		abrirTelaLogin();
-		//scrollPane.setFitToHeight(true);
-		//scrollPane.setFitToWidth(true);
-		
+		// scrollPane.setFitToHeight(true);
+		// scrollPane.setFitToWidth(true);
+
 		try {
 			DiarioView = FXMLLoader.load(Main.class.getResource("/view/diario.fxml"));
 			LerDiarioView = FXMLLoader.load(Main.class.getResource("/view/lerDiario.fxml"));
 			DesejosView = FXMLLoader.load(Main.class.getResource("/view/desejo.fxml"));
 			TarefasView = FXMLLoader.load(Main.class.getResource("/view/tarefa.fxml"));
 			ContrGastosView = FXMLLoader.load(Main.class.getResource("/view/controleGastos.fxml"));
-			
+
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
 
+	/*
+	 * @FXML void handleBloquear(ActionEvent event) {
+	 * 
+	 * abrirTelaLogin(); }
+	 */
 
-	/*@FXML
-	void handleBloquear(ActionEvent event) {
-
-		abrirTelaLogin();
-	}*/
-
-	private void abrirTelaLogin(){
+	private void abrirTelaLogin() {
 		// Abrindo tela de login
 		Stage stage = new Stage(StageStyle.TRANSPARENT);
 		Parent parent;
@@ -81,190 +80,127 @@ public class TelaInicialController extends Controller implements Initializable {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		
+
 		lbUsuario.setText(super.getPessoa().getNome());
-		//atualizando a interface com o usuario logado
-	//	labelUsuario.setText(UsuarioRepository. .getNome());
-		
-		//bloqueando botoes de conforme o perfil
-				
-	/*	if(Controller.getUsuarioLogado().getPerfil().equals(Perfil.ADMINISTRADOR)) {
-			
-			btCadastroCidade.setDisable(false);
-			btCadastroCliente.setDisable(false);
-		}
-		else if(Controller.getUsuarioLogado().getPerfil().equals(Perfil.CADASTRO)) {
-			btCadastroCidade.setDisable(true); //desabilita o cadastro de cidade
-			btCadastroCliente.setDisable(false);
-			*/
-			
-		}
+		// atualizando a interface com o usuario logado
+		// labelUsuario.setText(UsuarioRepository. .getNome());
 
-		 @FXML 
-		 void handleAbrirEscreverDiario(ActionEvent event) throws IOException {
-		  
-			 VBox vbox = new VBox();
-				vbox.setAlignment(Pos.TOP_CENTER);
-				vbox.getChildren().add(DiarioView);
-				scrollPane.setContent(vbox);
-				
-			 /* FXMLLoader fXMLLoader = new FXMLLoader();
-		  fXMLLoader.setLocation(getClass().getResource("/view/diario.fxml")); Stage
-		  stage = new Stage(); Scene scene = new Scene(fXMLLoader.load());
-		  stage.setScene(scene);
-		  
-		 stage.initModality(Modality.APPLICATION_MODAL);
-		 stage.setTitle("Escrever Diario"); stage.show();*/ 
-		 }
-		  
-		  @FXML 
-		  void handleAbrirLerDiario(ActionEvent event) throws IOException {
-		  
-		  /*FXMLLoader fXMLLoader = new FXMLLoader();
-		  fXMLLoader.setLocation(getClass().getResource("/view/lerDiario.fxml")); Stage
-		  stage = new Stage(); Scene scene = new Scene(fXMLLoader.load());
-		  stage.setScene(scene);
-		  
-		  stage.initModality(Modality.APPLICATION_MODAL); stage.setTitle("Ler Diario");
-		  stage.show();*/
-			 
-			  VBox vbox = new VBox();
-				vbox.setAlignment(Pos.TOP_CENTER);
-				vbox.getChildren().add(LerDiarioView);
-				scrollPane.setContent(vbox);
-		  }
-		  
-		  @FXML 
-		  void handleAbrirDesejos(ActionEvent event) throws IOException {
-		  
-		 /* FXMLLoader fXMLLoader = new FXMLLoader();
-		  fXMLLoader.setLocation(getClass().getResource("/view/desejo.fxml")); Stage
-		  stage = new Stage(); Scene scene = new Scene(fXMLLoader.load());
-		  stage.setScene(scene);
-		 
-		  stage.initModality(Modality.APPLICATION_MODAL);
-		  stage.setTitle("Escrever Desejos"); stage.show();*/
-			  
-			  VBox vbox = new VBox();
-				vbox.setAlignment(Pos.TOP_CENTER);
-				vbox.getChildren().add(DesejosView);
-				scrollPane.setContent(vbox);
-		  }
-		  
-		  @FXML 
-		  void handleAbrirFinanceiro(ActionEvent event) throws IOException {
-		  /*FXMLLoader fXMLLoader = new FXMLLoader();
-		  fXMLLoader.setLocation(getClass().getResource("/view/controleGastos.fxml"));
-		  Stage stage = new Stage(); Scene scene = new Scene(fXMLLoader.load());
-		  stage.setScene(scene);
-		  
-		  stage.initModality(Modality.APPLICATION_MODAL);
-		  stage.setTitle("Controle de Gastos"); stage.show();*/
-			  
-			  VBox vbox = new VBox();
-				vbox.setAlignment(Pos.TOP_CENTER);
-				vbox.getChildren().add(ContrGastosView);
-				scrollPane.setContent(vbox);
-		  
-		  }
-		  
-		  @FXML 
-		  void handleAbrirTarefas(ActionEvent event) throws IOException {
-		 /* FXMLLoader fXMLLoader = new FXMLLoader();
-		  fXMLLoader.setLocation(getClass().getResource("/view/tarefa.fxml")); Stage
-		  stage = new Stage(); Scene scene = new Scene(fXMLLoader.load());
-		  stage.setScene(scene);
-		  
-		  stage.initModality(Modality.APPLICATION_MODAL);
-		  stage.setTitle("Realizar Tarefas"); stage.show();
-*/		  
-			  
-			  VBox vbox = new VBox();
-				vbox.setAlignment(Pos.TOP_CENTER);
-				vbox.getChildren().add(TarefasView);
-				scrollPane.setContent(vbox);
-		  }
+		// bloqueando botoes de conforme o perfil
 
+		/*
+		 * if(Controller.getUsuarioLogado().getPerfil().equals(Perfil.ADMINISTRADOR)) {
+		 * 
+		 * btCadastroCidade.setDisable(false); btCadastroCliente.setDisable(false); }
+		 * else if(Controller.getUsuarioLogado().getPerfil().equals(Perfil.CADASTRO)) {
+		 * btCadastroCidade.setDisable(true); //desabilita o cadastro de cidade
+		 * btCadastroCliente.setDisable(false);
+		 */
 
-		@Override
-		public boolean validate() {
-			// TODO Auto-generated method stub
-			return false;
-		}
-
-
-	
-		
-		
-		
 	}
 
-	/*
-	 * @FXML private Label lbUsuarioLogado;
-	 * 
-	 * 
-	 * @FXML void handleAbrirEscreverDiario(ActionEvent event) throws IOException {
-	 * 
-	 * FXMLLoader fXMLLoader = new FXMLLoader();
-	 * fXMLLoader.setLocation(getClass().getResource("/view/diario.fxml")); Stage
-	 * stage = new Stage(); Scene scene = new Scene(fXMLLoader.load());
-	 * stage.setScene(scene);
-	 * 
-	 * stage.initModality(Modality.APPLICATION_MODAL);
-	 * stage.setTitle("Escrever Diario"); stage.show(); }
-	 * 
-	 * @FXML void handleAbrirLerDiario(ActionEvent event) throws IOException {
-	 * 
-	 * FXMLLoader fXMLLoader = new FXMLLoader();
-	 * fXMLLoader.setLocation(getClass().getResource("/view/lerDiario.fxml")); Stage
-	 * stage = new Stage(); Scene scene = new Scene(fXMLLoader.load());
-	 * stage.setScene(scene);
-	 * 
-	 * stage.initModality(Modality.APPLICATION_MODAL); stage.setTitle("Ler Diario");
-	 * stage.show(); }
-	 * 
-	 * @FXML void handleAbrirDesejos(ActionEvent event) throws IOException {
-	 * 
-	 * FXMLLoader fXMLLoader = new FXMLLoader();
-	 * fXMLLoader.setLocation(getClass().getResource("/view/desejo.fxml")); Stage
-	 * stage = new Stage(); Scene scene = new Scene(fXMLLoader.load());
-	 * stage.setScene(scene);
-	 * 
-	 * stage.initModality(Modality.APPLICATION_MODAL);
-	 * stage.setTitle("Escrever Desejos"); stage.show(); }
-	 * 
-	 * @FXML void handleAbrirFinanceiro(ActionEvent event) throws IOException {
-	 * FXMLLoader fXMLLoader = new FXMLLoader();
-	 * fXMLLoader.setLocation(getClass().getResource("/view/controleGastos.fxml"));
-	 * Stage stage = new Stage(); Scene scene = new Scene(fXMLLoader.load());
-	 * stage.setScene(scene);
-	 * 
-	 * stage.initModality(Modality.APPLICATION_MODAL);
-	 * stage.setTitle("Controle de Gastos"); stage.show();
-	 * 
-	 * }
-	 * 
-	 * @FXML void handleAbrirTarefas(ActionEvent event) throws IOException {
-	 * FXMLLoader fXMLLoader = new FXMLLoader();
-	 * fXMLLoader.setLocation(getClass().getResource("/view/tarefa.fxml")); Stage
-	 * stage = new Stage(); Scene scene = new Scene(fXMLLoader.load());
-	 * stage.setScene(scene);
-	 * 
-	 * stage.initModality(Modality.APPLICATION_MODAL);
-	 * stage.setTitle("Realizar Tarefas"); stage.show();
-	 * 
-	 * }
-	 * 
-	 * @Override public void initialize(URL location, ResourceBundle resources) {
-	 * 
-	 * 
-	 * UsuarioRepository repository = new
-	 * UsuarioRepository(JPAFactory.getEntityManager());
-	 * 
-	 * 
-	 * 
-	 * 
-	 * }
-	 */
+	@FXML
+	void handleAbrirEscreverDiario(ActionEvent event) throws IOException {
 
+		VBox vbox = new VBox();
+		vbox.setAlignment(Pos.TOP_CENTER);
+		vbox.getChildren().add(DiarioView);
+		scrollPane.setContent(vbox);
 
+		/*
+		 * FXMLLoader fXMLLoader = new FXMLLoader();
+		 * fXMLLoader.setLocation(getClass().getResource("/view/diario.fxml")); Stage
+		 * stage = new Stage(); Scene scene = new Scene(fXMLLoader.load());
+		 * stage.setScene(scene);
+		 * 
+		 * stage.initModality(Modality.APPLICATION_MODAL);
+		 * stage.setTitle("Escrever Diario"); stage.show();
+		 */
+	}
+
+	@FXML
+	void handleAbrirLerDiario(ActionEvent event) throws IOException {
+
+		/*
+		 * FXMLLoader fXMLLoader = new FXMLLoader();
+		 * fXMLLoader.setLocation(getClass().getResource("/view/lerDiario.fxml")); Stage
+		 * stage = new Stage(); Scene scene = new Scene(fXMLLoader.load());
+		 * stage.setScene(scene);
+		 * 
+		 * stage.initModality(Modality.APPLICATION_MODAL); stage.setTitle("Ler Diario");
+		 * stage.show();
+		 */
+
+		VBox vbox = new VBox();
+		vbox.setAlignment(Pos.TOP_CENTER);
+		vbox.getChildren().add(LerDiarioView);
+		scrollPane.setContent(vbox);
+	}
+
+	@FXML
+	void handleAbrirDesejos(ActionEvent event) throws IOException {
+
+		/*
+		 * FXMLLoader fXMLLoader = new FXMLLoader();
+		 * fXMLLoader.setLocation(getClass().getResource("/view/desejo.fxml")); Stage
+		 * stage = new Stage(); Scene scene = new Scene(fXMLLoader.load());
+		 * stage.setScene(scene);
+		 * 
+		 * stage.initModality(Modality.APPLICATION_MODAL);
+		 * stage.setTitle("Escrever Desejos"); stage.show();
+		 */
+
+		VBox vbox = new VBox();
+		vbox.setAlignment(Pos.TOP_CENTER);
+		vbox.getChildren().add(DesejosView);
+		scrollPane.setContent(vbox);
+	}
+
+	@FXML
+	void handleAbrirFinanceiro(ActionEvent event) throws IOException {
+		/*
+		 * FXMLLoader fXMLLoader = new FXMLLoader();
+		 * fXMLLoader.setLocation(getClass().getResource("/view/controleGastos.fxml"));
+		 * Stage stage = new Stage(); Scene scene = new Scene(fXMLLoader.load());
+		 * stage.setScene(scene);
+		 * 
+		 * stage.initModality(Modality.APPLICATION_MODAL);
+		 * stage.setTitle("Controle de Gastos"); stage.show();
+		 */
+
+		VBox vbox = new VBox();
+		vbox.setAlignment(Pos.TOP_CENTER);
+		vbox.getChildren().add(ContrGastosView);
+		scrollPane.setContent(vbox);
+
+	}
+
+	@FXML
+	void handleAbrirTarefas(ActionEvent event) throws IOException {
+		/*
+		 * FXMLLoader fXMLLoader = new FXMLLoader();
+		 * fXMLLoader.setLocation(getClass().getResource("/view/tarefa.fxml")); Stage
+		 * stage = new Stage(); Scene scene = new Scene(fXMLLoader.load());
+		 * stage.setScene(scene);
+		 * 
+		 * stage.initModality(Modality.APPLICATION_MODAL);
+		 * stage.setTitle("Realizar Tarefas"); stage.show();
+		 */
+
+		VBox vbox = new VBox();
+		vbox.setAlignment(Pos.TOP_CENTER);
+		vbox.getChildren().add(TarefasView);
+		scrollPane.setContent(vbox);
+	}
+
+	 @FXML
+	    void handleBloquear(ActionEvent event) {
+	    	abrirTelaLogin();
+	    }
+	
+	@Override
+	public boolean validate() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+}

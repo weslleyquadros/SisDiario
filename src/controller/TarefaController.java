@@ -225,8 +225,8 @@ handleListar(event);
 	@FXML
 	void handleListar(ActionEvent event) {
 		
-		Controller pegarUsuario = new Controller();
-		Pessoa usuarioLogado = pegarUsuario.getPessoa();
+		//Controller pegarUsuario = new Controller();
+		Pessoa usuarioLogado = Controller.getPessoa();
 		
 		TarefaRepository repository = new TarefaRepository(JPAFactory.getEntityManager());
 		List<Tarefa> lista = repository.getTarefa(usuarioLogado);
@@ -295,7 +295,7 @@ handleListar(event);
 	@Override
 	public boolean validate() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 }

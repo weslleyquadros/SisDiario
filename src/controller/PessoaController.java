@@ -5,8 +5,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import application.Util;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -100,8 +98,8 @@ public class PessoaController extends Controller<Pessoa> implements Initializabl
 		getPessoa().setEmail(tfEmail.getText());
 		getPessoa().setSenha(Util.encrypt(tfSenha.getText()));
 		getPessoa().setSexo(cbSexo.getValue());
-		
 //		super.save(getPessoa());
+//
 //		handleCancelar(event);
 		
 		if (super.save(getPessoa()) != null) {
@@ -126,79 +124,6 @@ public class PessoaController extends Controller<Pessoa> implements Initializabl
 
 	}
 
-	/*
-	 * @FXML void handleAdicionarTelefone(ActionEvent event) { Telefone tel = new
-	 * Telefone(); tel.setCodigoArea(tfCodigoArea.getText());
-	 * tel.setNumero(tfNumero.getText()); tel.setPessoa(pessoa);
-	 * 
-	 * if (getPessoa().getListaTelefone() == null) getPessoa().setListaTelefone(new
-	 * ArrayList<Telefone>());
-	 * 
-	 * getPessoa().getListaTelefone().add(tel);
-	 * 
-	 * // atualizando a interface
-	 * tbTelefone.setItems(FXCollections.observableList(getPessoa().getListaTelefone
-	 * ()));
-	 * 
-	 * // limpando os campos tfCodigoArea.clear(); tfNumero.clear();
-	 * tfCodigoArea.requestFocus();
-	 * 
-	 * }
-	 */
-
-	/*
-	 * @FXML void handlePesquisar(ActionEvent event) { pessoaRepository repository =
-	 * new pessoaRepository(JPAFactory.getEntityManager()); List<Pessoa> lista =
-	 * repository.getPessoas(tfPesquisar.getText());
-	 * 
-	 * if (lista.isEmpty()) { Alert alerta = new Alert(AlertType.INFORMATION);
-	 * alerta.setTitle("Informação"); alerta.setHeaderText(null);
-	 * alerta.setContentText("A consulta não retornou dados."); alerta.show(); }
-	 * tvpessoas.setItems(FXCollections.observableList(lista)); }
-	 */
-
-	/*
-	 * @FXML void handleMouseClicked(MouseEvent event) { // verificando se eh o
-	 * botao principal if (event.getButton().equals(MouseButton.PRIMARY)) { //
-	 * verificando a quantidade de cliques if (event.getClickCount() == 2) { pessoa
-	 * = tvpessoas.getSelectionModel().getSelectedItem();
-	 * tfCpf.setText(getPessoa().getCpf()); tfNome.setText(getPessoa().getNome());
-	 * tfEndereco.setText(getPessoa().getEndereco());
-	 * tfEmail.setText(getPessoa().getEmail());
-	 * dpAniversario.setValue(getPessoa().getDataAniversaio());
-	 * 
-	 * // preenchendo os telefone
-	 * tbTelefone.setItems(FXCollections.observableList(getPessoa().getListaTelefone
-	 * ()));
-	 * 
-	 * // selecionando a primeira aba tpAbas.getSelectionModel().select(0);
-	 * 
-	 * // setando o focus no cpf tfCpf.requestFocus(); atualizarBotoes(); } }
-	 * 
-	 * }
-	 */
-
-	/*
-	 * @FXML void handleAlterar(ActionEvent event) {
-	 * getPessoa().setCpf(tfCpf.getText()); getPessoa().setNome(tfNome.getText());
-	 * getPessoa().setEndereco(tfEndereco.getText());
-	 * getPessoa().setEmail(tfEmail.getText());
-	 * getPessoa().setDataAniversaio(dpAniversario.getValue());
-	 * 
-	 * save(getPessoa());
-	 * 
-	 * handleLimpar(event); }
-	 */
-	/*
-	 * @FXML void handleExcluir(ActionEvent event) { super.remove(getPessoa());
-	 * handleLimpar(event); }
-	 */
-
-	private void atualizarBotoes() {
-		btSalvar.setDisable(getPessoa().getId() != null);
-
-	}
-	
 	@Override
 	public boolean validate() {
 		
@@ -236,9 +161,13 @@ public class PessoaController extends Controller<Pessoa> implements Initializabl
 		
 		return true;
 	}
-	
 
-	public Pessoa getPessoa() {
+	private void atualizarBotoes() {
+		btSalvar.setDisable(getPessoa().getId() != null);
+
+	}
+
+	public static Pessoa getPessoa() {
 		if (pessoa == null)
 			pessoa = new Pessoa();
 		return pessoa;
@@ -249,5 +178,5 @@ public class PessoaController extends Controller<Pessoa> implements Initializabl
 	}
 
 
-	
+
 }

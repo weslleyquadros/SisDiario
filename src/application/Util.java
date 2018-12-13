@@ -1,13 +1,10 @@
 package application;
-
-import java.io.UnsupportedEncodingException;
+ import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-
-import javafx.scene.control.Alert;
+ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
-
-public class Util {
+ public class Util {
 	
 	
 	public static String encrypt (String value) {
@@ -46,5 +43,4 @@ public class Util {
 //	public static void main(String[] args) {
 //		System.out.println(Util.encrypt("123"));
 //	}
-
-}
+ }

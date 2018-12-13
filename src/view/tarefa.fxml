@@ -21,7 +21,7 @@
       </Label>
       <Label layoutX="193.0" layoutY="94.0" text="Título: " textFill="WHITE" AnchorPane.leftAnchor="193.0" AnchorPane.rightAnchor="368.0" />
       <TextField fx:id="tfTitulo" layoutX="255.0" layoutY="90.0" prefHeight="25.0" prefWidth="224.0" promptText="Escreva o título" />
-      <RadioButton fx:id="rbAguardando" layoutX="212.0" layoutY="204.0" mnemonicParsing="false" text="Aguardando" textFill="WHITE" AnchorPane.leftAnchor="212.0" AnchorPane.rightAnchor="301.0" />
+      <RadioButton fx:id="rbAguardando" layoutX="212.0" layoutY="204.0" mnemonicParsing="false" selected="true" text="Aguardando" textFill="WHITE" AnchorPane.leftAnchor="212.0" AnchorPane.rightAnchor="301.0" />
       <RadioButton fx:id="rbRealizada" layoutX="311.0" layoutY="204.0" mnemonicParsing="false" text="Realizada" textFill="WHITE" AnchorPane.leftAnchor="311.0" AnchorPane.rightAnchor="217.0" />
       <RadioButton fx:id="rbNaoRealizado" layoutX="395.0" layoutY="204.0" mnemonicParsing="false" text="Não realizada" textFill="WHITE" AnchorPane.leftAnchor="395.0" AnchorPane.rightAnchor="110.0" />
       <Button fx:id="btSalvar" layoutX="184.0" layoutY="246.0" mnemonicParsing="false" onAction="#handleSalvar" prefHeight="36.0" prefWidth="72.0" style="-fx-background-color: #30A9DE;" text="Salvar" textFill="WHITE">

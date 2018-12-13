@@ -7,7 +7,6 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -46,7 +45,7 @@
       </HBox>
       <HBox alignment="CENTER" layoutX="70.0" layoutY="158.0" prefHeight="70.0" prefWidth="465.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <Button fx:id="btSalvar" mnemonicParsing="false" onAction="#handleSalvar" prefHeight="36.0" prefWidth="72.0" style="-fx-background-color: #30A9DE;" text="Salvar" textFill="WHITE">
+            <Button fx:id="btSalvar" mnemonicParsing="false" onAction="#handleIncluir" prefHeight="36.0" prefWidth="72.0" style="-fx-background-color: #30A9DE;" text="Salvar" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -82,20 +81,17 @@
       </HBox>
       <HBox alignment="CENTER" layoutX="127.0" layoutY="124.0" prefHeight="44.0" prefWidth="355.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <RadioButton fx:id="rbAguardando" mnemonicParsing="false" selected="true" style="-fx-background-size: red;" text="Aguardando" textFill="WHITE">
-               <toggleGroup>
-                  <ToggleGroup fx:id="status" />
-               </toggleGroup>
+            <RadioButton fx:id="rbAguardando" mnemonicParsing="false" selected="true" text="Aguardando" textFill="WHITE">
                <padding>
                   <Insets right="50.0" />
                </padding>
             </RadioButton>
-            <RadioButton fx:id="rbRealizado" mnemonicParsing="false" text="Realizado" textFill="WHITE" toggleGroup="$status">
+            <RadioButton fx:id="rbRealizado" mnemonicParsing="false" text="Realizado" textFill="WHITE">
                <padding>
                   <Insets right="50.0" />
                </padding>
             </RadioButton>
-            <RadioButton fx:id="rbNaoRealizado" mnemonicParsing="false" text="Não realizado" textFill="WHITE" toggleGroup="$status">
+            <RadioButton fx:id="rbNaoRealizado" mnemonicParsing="false" text="Não realizado" textFill="WHITE">
                <padding>
                   <Insets right="50.0" />
                </padding>
